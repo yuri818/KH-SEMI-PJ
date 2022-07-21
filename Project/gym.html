@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GYM</title>
+  <script src="https://kit.fontawesome.com/afb658d092.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="gym.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Dosis&display=swap');
+  </style>
+</head>
+<body>
+  <header>
+    <h1>DaGYM</h1>
+    <ul class="gnb"> 
+      <li><a href="#">About</a></li>   <!-- li*6>a -->
+      <li><a href="#">지점안내</a></li>
+      <li><a href="#">프로그램</a></li>
+      <li><a href="#">회원전용</a></li>
+      <li><a href="#">고객센터</a></li>
+    </ul>
+    <ul class="lnb">
+      <li><button class="log_in"><a href="#">로그인</a></button></li>
+      <li><button class="sign_up"><a href="#">회원가입</a></button></li>
+    </ul>
+    <a href="" class="btnMenu">
+      <i class="fas fa-bars"></i>
+    </a>
+  </header>
+  <main class="camp-bg">
+    <div class="video-wrap">
+      <video src="./gym_Trim.mp4" muted autoplay loop></video> <!-- mdn video 참고 -->
+    </div>
+  </main>
+  <script>
+    const btns = document.querySelectorAll(".gnb li");
+    btns.forEach((btn, index) => {
+      btn.addEventListener('click', (e) =>{
+        console.log(index);
+        for (let item of btns){
+          item.classList.remove('on');
+        }
+        btns[index].classList.add('on');
+      });
+    });
+  </script>
+</body>
+</html>
+
+<!-- 
+  Global Navigation Bar : 전체페이지를 구성하는 메뉴 - gnb
+  Local Navigation Bar  : 로컬페이지를 구성하는 메뉴 - lnb
+
+ -->
