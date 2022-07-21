@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GYM</title>
+  <!-- 아이콘 fontawesome -->
+  <script src="https://kit.fontawesome.com/afb658d092.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="gym.css">
+  <style> /* 영어폰트 -구글 */
+    @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Dosis&display=swap');
+  </style>
+</head>
+<body>
+    <!-- ////////// header 시작 /////////// -->
+  <div class="header">
+    <div class="header_container">
+      <div class="header_left"></div>
+        <h1>DaGYM</h1> <!-- img태그로 바꾸기 <img class ="logo"-->
+        <nav class="main_nav">
+          <ul class="header_ul01"> 
+            <li class="about">ABOUT
+              <ul class="header_ul02">
+                <li>회사소개</li>
+                <li>CONTACTS</li>
+              </ul>
+            </li>
+              
+            <li class="branch"><a href="#">지점안내</a></li>
+
+            <li class="program">프로그램
+              <ul class="header_ul02">
+                <li>PT</li>
+                <li>GX</li>
+                <li>BASIC</li>
+              </ul>
+            </li>
+
+            <li class="private_service">회원전용
+              <ul class="header_ul02">
+                <li>수강신청</li>
+                <li>내 시간표</li>
+                <li>신체 정보</li>
+                <li>이용권 구매</li>
+                <li>구매 내역</li>
+                <li>설문조사</li>
+              </ul>
+            </li>
+            
+            <li class="service_center">고객센터
+              <ul class="header_ul02">
+                <li>공지사항</li>
+                <li>QnA</li>
+                <li>후기</li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="header_right">
+      <button class="home_login"><a href="#">로그인</a></button>
+      <a href="" class="btnMenu"><i class="fas fa-bars"></i></a>
+    </div>
+  </header>
+  <!-- ////////// header 끝 main 시작 /////////// -->
+  <main class="main">
+    <div class="main_container">
+      <section class="section01">
+        <div class="video-wrap">
+          <video src="./gym_Trim.mp4" muted autoplay loop></video> <!-- mdn video 참고 링크--> 
+        </div>
+        <div class="text-wrap">
+          <!-- 광고 내용 -->
+          <h2>MVC패턴<br>계층형게시판</h2>
+          <h3>JAVA + Servlet + JSP + Spring</h3>
+          <h3>HTML5 + CSS3 + JavaScript + React</h3>
+          <p>
+            Front-End에서부터 Back-End까지<br>
+            풀스택 개발자를 양성하는 과정입니다.
+          </p>
+        </div>
+      </section>
+      <section class="section02">섹션2
+        <div class="info_wrap">
+          <div class="info_top">탑</div>
+          <div class="info_bottom">바텀
+            <div class="info_left">왼</div>
+            <div class="info_right">오</div>
+          </div>
+        </div>
+      </section>
+      <section class="section03">
+        <div class="promo_wrap">
+          <img src="" alt="" class="main_promo">
+        </div>
+      </section>
+  </div>
+  </main>
+   <!-- ////////// main 끝 footer 시작 /////////// -->
+  <footer class="footer">
+    <div class="container">
+      <div class="foot_box">회사소개 | 개인정보처리방침</div>
+      <div class="icons">아이콘
+        <a href=""><i></i></a>
+        <a href=""><i></i></a>
+        <a href=""><i></i></a>
+        <a href=""><i></i></a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const btns = document.querySelectorAll(".gnb li");
+    btns.forEach((btn, index) => {
+      btn.addEventListener('click', (e) =>{
+        console.log(index);
+        for (let item of btns){
+          item.classList.remove('on');
+        }
+        btns[index].classList.add('on');
+      });
+    });
+  </script>
+</body>
+</html>
+
+<!-- 
+  Global Navigation Bar : 전체페이지를 구성하는 메뉴 - gnb
+  Local Navigation Bar  : 로컬페이지를 구성하는 메뉴 - lnb
+
+ -->
