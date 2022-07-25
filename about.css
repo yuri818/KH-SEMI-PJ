@@ -1,0 +1,176 @@
+* {
+  box-sizing: border-box;
+/*   border: 1px solid blue; */
+  }
+  
+ul { /* 텍스트 옆에 콩알 없애기 */
+  list-style: none;
+  }
+  
+a { /* 텍스트 아래에 줄 없애기 */
+  text-decoration: none;
+  color: #000000;
+  }
+  
+body {
+  padding: 1px;
+  margin: 0px;
+  background-color: black;
+  }
+  
+header {
+  padding: 1px;
+  }
+  
+.header_container {
+  width: 100%; /* 1 */
+  border-bottom: 1px solid #aaaaaa; /* 2 메뉴아래 구분선 */
+  display: flex; /* 3 */
+/*     position: absolute; */
+  z-index: 2;          /* 헤더까지 영상이 올라오도록 하기 */
+  top: 0px;
+  left: 0px;
+  padding: 1px;
+  justify-content: space-between; /* 4 양 끝에 균등하게 배치 */
+  background-color: gray;
+  }
+  
+.header_left {
+  padding: 0.5rem 1rem;
+  margin: 0rem;
+  }
+  
+h1 {
+  font: bold 24px/1;
+  font-family: 'Caveat', cursive;
+  color: white;
+  margin: 0rem 0.5rem;
+  }
+  
+.header_ul01 {
+  display: flex; /* 5 안쪽에 있는 li들이 좌우 균등하게 배치됨. */
+  margin-top: 1.2rem;
+  margin-bottom: 0px;
+  padding-left: 200px;
+  color: white;
+  }
+  
+.header_ul01>li ul {
+  display: none; /* 하위 카테고리 숨기기 */
+  margin: 0px 30px; /* 6 위아래 0px, 양 옆에 20px */
+  font-family: 'Dosis', sans-serif;
+  cursor: pointer;
+  }
+
+  .header_ul01>li:hover ul{ /* 하위 카테고리 마우스 갖다대면 나타내기 */
+  display: block;
+  }
+
+.header_ul01 li a {
+  color: white;
+  font-size: 105%;
+  }
+
+.header_ul01 li a:hover{
+  border-radius: 5px;
+  color: rgb(0, 0, 255);
+    /* text-decoration:underline;
+    text-underline-position:under; 밑줄 */ 
+  font-weight: bold;
+  background-color: rgb(255, 255, 255, 0.6);
+  }
+  
+.header_ul02 {
+  padding: 0.1rem;
+  }
+  
+.header_ul02 li {
+  margin: 0.4rem 0rem;
+  /* letter-spacing: 2px; 글자 간격 */
+  color: #aaaaaa;
+  font-size: 90%;
+  }
+  
+.header_ul02 li:hover{
+  color: white;
+  }
+  
+  
+header .lnb {
+  display: flex;
+  margin-top: 0px;
+  margin-bottom: 30px;
+  }
+  
+header .lnb li {
+  margin: 0px;
+  margin-right: 10px;
+  }
+  
+.header_right {
+  padding: 0px;
+  margin: 0.5rem 1.0rem;
+  }
+  
+.header_right button {
+  background: none;
+  border: white solid 1px;
+  border-radius: 5px;
+  }
+  
+.home_login a {
+  color: white;
+  }
+  
+header .btnMenu {
+  font-size: 20px;
+  color: white;
+  display: none;
+  }
+
+/* .main_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+} */
+
+/* .about_int {
+  width: 50%;
+  height: 450px;
+  padding-top: 30px;
+} */
+
+/* .intro_map {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0.8rem 0rem;
+} */
+
+#map {
+  position: relative;
+  margin: 0.8rem auto;
+  width: 90%;
+  height: 500px;
+  /* border: 3px solid blue; */
+  }
+
+.footer_container {
+  width: 99%;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem;
+  padding: 0.8rem;
+  }
+
+.icons {
+  font-size: 30px;
+}
+
