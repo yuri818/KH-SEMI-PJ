@@ -1,0 +1,175 @@
+* {
+  box-sizing: border-box;
+  border: 1px solid red;
+}
+
+.left_line {
+  width: 20px;
+  height: 100%;
+  background: rgba(15, 2, 90, 0.726);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 200;
+}
+
+ul { /* 텍스트 옆에 콩알 없애기 */
+  list-style: none;
+}
+
+a { /* 텍스트 아래에 줄 없애기 */
+  text-decoration: none;
+  color: white;
+}
+
+body {
+  background-color: rgb(23, 4, 107);
+  padding: 1px;
+  margin: 0px;
+  color: white;
+}
+
+.header {
+  padding: 1px;
+}
+
+.header_container {
+  width: 100%; /* 1 */
+  border-bottom: 2px solid #aaaaaa; /* 2 메뉴아래 구분선 */
+  display: flex; /* 3 */
+  position: absolute;
+  z-index: 2;          /* 헤더까지 영상이 올라오도록 하기 */
+  top: 0px;
+  left: 0px;
+  padding: 1px;
+  justify-content: space-between; /* 4 양 끝에 균등하게 배치 */
+}
+
+.header_left { /* 로고 */
+  padding: 1rem;
+  padding-left: 2rem;
+  margin: 0rem;
+  padding-right: 13%;
+}
+
+.header_left h1 {
+  font: bold 24px/1;
+  font-family: 'Caveat', cursive;
+  margin: 0rem 0.5rem;
+}
+
+.header_center { /* 상단바 메뉴 */
+}
+
+.main_nav {
+  margin: 0%;
+}
+
+.header_ul01 {
+  display: flex; /* 5 안쪽에 있는 li들이 좌우 균등하게 배치됨. */
+  margin-top: 1.2rem;
+  margin-bottom: 2rem;
+  padding: 5px;
+  justify-content: space-between;
+}
+
+.header_ul01 a {
+  letter-spacing: 1px;
+  margin: 0px 30px;
+}
+
+.header_ul01 li {
+  min-width: max-content;
+  font-family: 'Dosis', sans-serif;
+  cursor: pointer;
+  /* margin: 0% 10%; */
+  display: inline-block;
+  top: 0;
+}
+
+.header_ul01 li a {
+  font-size: 105%;
+}
+
+
+.header_ul01 li a:hover{
+  border-radius: 5px;
+  /* text-decoration:underline;
+  text-underline-position:under; 밑줄 */ 
+  font-weight: bold;
+}
+
+.header_ul02 {
+  padding: 0%;
+  display:none; 
+  position:absolute;
+  background-color: rgba(5, 1, 43, 0.644);
+
+}
+
+.header_ul01 li:hover ul{/* 하위 메뉴 숨기기 */
+  display:block;
+}
+
+.header_ul02 li{
+  margin: 0.4rem 0rem;
+}
+
+.header_ul02 li a{
+  color: #aaaaaa;
+  font-size: 90%;
+}
+
+.header_ul02 li a{
+  display:block;
+}
+
+.header_ul02 li a:hover{
+  color: white;
+  background: none;
+}
+
+.header_right { /* 로그인 */
+  min-width: max-content;
+  padding: 0px;
+  margin: 0.5rem 1.0rem;
+}
+
+.header_right button {
+  background: none;
+  border: white solid 1px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
+header .btnMenu {
+  font-size: 20px;
+  display: none;
+}
+
+.main_container{
+  border-bottom: 2px solid #aaaaaa; /* 2 메뉴아래 구분선 */
+}
+
+.footer_container {
+  display: flex;
+  justify-content: space-between; 
+  padding: 1%;
+}
+
+
+
+/* 반응형 웹 처리 */
+@media screen and (max-width: 1024px) {
+  header .gnb {
+    display: none;
+  }
+  header .lnb {
+    display: none;
+  }
+  header .btnMenu {
+    display: block;
+  }
+}
