@@ -20,13 +20,15 @@ body {
 
 .header {
   padding: 1px;
+  background-color: rgb(70, 64, 236);
 }
 
 .header_container {
   width: 100%; /* 1 */
   border-bottom: 1px solid #aaaaaa; /* 2 메뉴아래 구분선 */
   display: flex; /* 3 */
-  position: absolute;
+  /* 아래 코드 주석으로 막은 이유가 자꾸 지도가 헤더 뒤에 가서 붙음 */
+  /* position: absolute; */
   z-index: 2;          /* 헤더까지 영상이 올라오도록 하기 */
   top: 0px;
   left: 0px;
@@ -191,9 +193,19 @@ header .btnMenu {
   }
 }
 
+/* 내가 추가한 부분 */
+.tag {
+  text-align: center;
+}
 
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+.taglist {
+  display: inline-block;
+  margin-top: 53px;
+  line-height: 1.6;
+}
+
+.taglist-item {
+  float: left;
+  margin-right: 15px;
+  font-size: 20px;
 }
