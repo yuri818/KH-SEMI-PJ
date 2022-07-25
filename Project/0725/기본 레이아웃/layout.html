@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GYM</title>
+  <!-- 아이콘 fontawesome -->
+  <script src="https://kit.fontawesome.com/afb658d092.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./layout.css">
+  <style> /* 영어폰트 -구글 */
+    @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Dosis&display=swap');
+  </style>
+</head>
+<body>
+  <div class="body_wrap">
+    <div class="left_line"></div>
+    <!-- ////////// header 시작 /////////// -->
+    <header class="header">
+      <div class="header_container">
+        <div class="header_left">
+          <h1>DaGYM</h1> <!-- img태그로 바꾸기 <img class ="logo"-->
+        </div>
+        <div class="header_center">
+          <nav class="main_nav">
+            <ul class="header_ul01"> 
+              <li class="about"><a href="#">&nbsp;ABOUT&nbsp;</a>
+                <ul class="header_ul02">
+                  <li><a href="#">회사소개</a></li>
+                  <li><a href="#">CONTACTS</a></li>
+                </ul>
+              </li>
+                
+              <li class="branch"><a href="#">&nbsp;지점안내&nbsp;</a></li>
+    
+              <li class="program"><a href="#">&nbsp;프로그램&nbsp;</a>
+                <ul class="header_ul02">
+                  <li><a href="#">PT</a></li>
+                  <li><a href="#">GX</a></li>
+                  <li><a href="#">BASIC</a></li>
+                </ul>
+              </li>
+    
+              <li class="private_service"><a href="#">&nbsp;회원전용&nbsp;</a>
+                <ul class="header_ul02">
+                  <li><a href="#">수강신청</a></li>
+                  <li><a href="#">내 시간표</a></li>
+                  <li><a href="#">신체 정보</a></li>
+                  <li><a href="#">이용권 구매</a></li>
+                  <li><a href="#">구매 내역</a></li>
+                  <li><a href="#">설문조사</a></li>
+                </ul>
+              </li>
+              
+              <li class="service_center"><a href="#">&nbsp;고객센터&nbsp;</a>
+                <ul class="header_ul02">
+                  <li><a href="#">공지사항</a></li>
+                  <li><a href="#">QnA</a></li>
+                  <li><a href="#">후기</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="header_right">
+          <button class="home_login">로그인</button>
+          <a href="" class="btnMenu"><i class="fas fa-bars"></i></a>
+        </div>
+      </div>
+    </header>
+    <!-- ////////// header 끝 main 시작 /////////// -->
+    <main class="main">
+      <div class="main_container">
+        <span>웩</span>
+        <img src="" alt="이미지">
+      </div>
+    </main>
+    <!-- ////////// header 끝 main 시작 /////////// -->
+    <footer class="footer">
+      <div class="footer_container">
+        <div class="foot_box">
+          <div class="foot_link">
+            <a href="">회사소개</a> | 
+            <a href="">개인정보처리방침</a> | 
+            <a href="">CONTACT US</a>
+          </div>
+          <div class="foot_info">
+            서울특별시 강남구 테헤란로 14길 6 남도빌딩 2F  |  사업자등록번호 : 123-45-67891  |  대표이사 : 김승수
+            <br>Copyright ⓒ 2022 다짐 | 프라이빗 트레이닝 All rights reserved. Designed by 00dragon
+          </div>
+        </div>
+        <div class="icons">
+          <a href="" class="icon">인스타</a>
+          <a href="" class="icon">페북</a>
+          <a href="" class="icon">유튜브</a>
+          <a href="" class="icon">머..머넣지</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script>
+    const btns = document.querySelectorAll(".gnb li");
+    btns.forEach((btn, index) => {
+      btn.addEventListener('click', (e) =>{
+        console.log(index);
+        for (let item of btns){
+          item.classList.remove('on');
+        }
+        btns[index].classList.add('on');
+      });
+    });
+  </script>
+</body>
+</html>
