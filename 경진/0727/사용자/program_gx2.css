@@ -23,7 +23,8 @@ a { /* 텍스트 아래에 줄 없애기 */
 }
 
 body {
-  background-color: rgb(14, 1, 71);
+  background: linear-gradient(to right, rgb(14, 1, 71), rgb(36, 1, 189));
+  /* background-color: rgb(14, 1, 71); */
   padding: 1px;
   margin: 0px;
   color: white;
@@ -33,9 +34,13 @@ body {
   padding: 1px;
 }
 
+#nav_bar {
+
+}
+
 .header_container {
-  width: 100%; /* 1 */
   border-bottom: 2px solid #aaaaaa; /* 2 메뉴아래 구분선 */
+  width: 100%; /* 1 */
   display: flex; /* 3 */
   z-index: 2;          /* 헤더까지 영상이 올라오도록 하기 */
   top: 0px;
@@ -44,38 +49,31 @@ body {
   justify-content: space-between; /* 4 양 끝에 균등하게 배치 */
 }
 
-.header_left { /* 로고 */
-  padding: 1rem;
+.navbar-brand { /* 로고 */
+  padding: 1%;
   padding-left: 2rem;
-  margin: 0rem;
-  padding-right: 13%;
-}
-
-.header_left h1 {
-  font: bold 24px/1;
+  padding-right: 10%;
+  color: white;
+  font-weight: bold;
   font-family: 'Caveat', cursive;
-  margin: 0rem 0.5rem;
+  font-size: 2rem;
+  margin: 0rem 1rem;
 }
 
-.header_center { /* 상단바 메뉴 */
-
-}
-
-.main_nav {
-  margin: 0%;
+#navbarNav{
+  margin-bottom: 1%;
 }
 
 .header_ul01 {
-  display: flex;
+  /* display: flex;
+  justify-content: space-around; */
   margin-top: 1.2rem;
-  margin-bottom: 2rem;
-  padding: 5px;
-  justify-content: space-between;
 }
 
 .header_ul01 a {
   letter-spacing: 1px;
-  margin: 0px 30px;
+  margin: 0rem 1rem;
+  color: white;
 }
 
 .header_ul01 li {
@@ -100,13 +98,14 @@ body {
 
 .header_ul02 {
   padding: 0%;
-  display:none; 
+  display: none; 
   position:absolute;
   background-color: rgba(5, 1, 43, 0.644);
-
+  border-radius: 10px;
 }
 
-.header_ul01 li:hover ul{/* 하위 메뉴 숨기기 */
+/* 하위 메뉴 숨기기 */
+.header_ul01 li:hover ul{
   display:block;
 }
 
@@ -130,8 +129,10 @@ body {
 
 .header_right { /* 로그인 */
   min-width: max-content;
-  padding: 0px;
-  margin: 0.5rem 1.0rem;
+  margin: 0rem 1.0rem;
+  position: fixed;
+  top: 2%;
+  right: 0%;
 }
 
 .header_right button {
@@ -140,12 +141,18 @@ body {
   border-radius: 5px;
   cursor: pointer;
   color: white;
-  font-weight: bold;
+  font-size: smaller;
 }
 
-header .btnMenu {
+.navbar-toggler{
+  /* border: solid red; */
+  margin-bottom: 1%;
+  background: none;
+  border: 0px;
+  margin-right: 1%;
+}
+.navbar-toggler-icon {
   font-size: 20px;
-  display: none;
 }
 
 .main_container{
@@ -200,7 +207,7 @@ header .btnMenu {
 .footer_container {
   display: flex;
   justify-content: space-between; 
-  padding: 1%;
+  padding: 1% 2.5%;
 }
 
 
