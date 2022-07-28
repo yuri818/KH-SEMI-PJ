@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DaGYM 직원관리</title>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./manager_trainer.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="./manager_home.html">DaGYM</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="./manager_income.html">수입 조회</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./manager_member.html">회원 관리</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./manager_trainer.html">직원 관리</a>
+            </li>
+            <li class="nav-item dropdown" id="nav-item">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                게시판
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">공지사항</a></li>
+                <li><a class="dropdown-item" href="#">자주하는 질문</a></li>
+                <li><a class="dropdown-item" href="#">1:1 문의</a></li>
+                <li><a class="dropdown-item" href="#">후기 게시판</a></li>
+              </ul>
+            </li>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="main_wraper">
+      <div class="category">
+        <select class="form-select" aria-label="Default select example">
+          <option selected>지점</option>
+          <option value="center1">강남점</option>
+          <option value="center2">당산점</option>
+          <option value="center3">마포점</option>
+          <option value="center4">잠실점</option>
+          <option value="center5">종로점</option>
+        </select>
+        <div class="btn-group" role="group" aria-label="Basic outlined example">
+          <button type="button" class="btn btn-outline-primary">지점장</button>
+          <button type="button" class="btn btn-outline-primary">트레이너</button>
+          <button type="button" class="btn btn-outline-primary">FC</button>
+        </div>
+      </div>
+      <table class="table table-bordered ">
+        <thead class="table-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">이름</th>
+            <th scope="col">연락처</th>
+            <th scope="col">근무현황</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <tr>
+            <th scope="row">1</th>
+            <td><a href='#'>홍길동</a></td>
+            <td>010-3333-5555</td>
+            <td class="check"><button class="btn_check"><a href='#'>확인</a></button></td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td><a href='#'>유관순</a></td>
+            <td>010-9999-4444</td>
+            <td class="check"><button class="btn_check"><a href='#'>확인</a></button></td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td><a href='#'>한석봉</a></td>
+            <td>010-7777-2222</td>
+            <td class="check"><button class="btn_check"><a href='./manager_trainer_han.html'>확인</a></button></td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td colspan="2">Larry the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>* 이름 클릭 시 상세정보 조회</p>
+    </div>
+  </main>
+</body>
+</html>
