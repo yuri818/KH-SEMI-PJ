@@ -44,6 +44,7 @@ main{
   display: flex;
   border-bottom: 2px solid rgba(70, 41, 236, 0.733);
   padding-bottom: 3%;
+  align-items: center;
 }
 
 .form-select{
@@ -51,13 +52,13 @@ main{
   margin: 1%;
 }
 
-.d-flex{
-  display: 
-}
-
 .main_wraper table{
   margin-top: 4%;
   margin-bottom: 1%;
+}
+
+.table-group-divider{
+  text-align: center;
 }
 
 .check{
