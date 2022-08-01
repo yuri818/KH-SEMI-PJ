@@ -50,7 +50,9 @@ $("#register").click(function(){
     });
     alert('회원가입 성공!');
     // 회원가입하자마자 로그인 폼으로 넘어가게한다
-    // window.location="branch.html";
+    setTimeout(() => {
+      window.location="branch.html";
+    }, 1500);
   })
   .catch((error) => {
     console.log(error);

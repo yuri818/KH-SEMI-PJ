@@ -1,6 +1,6 @@
-var firebaseEmailAuth; //파이어베이스 email 인증 모듈 전역변수
-var firebaseDatabase; //파이어베이스 db 모듈 전역변수
-var userInfo; //가입한 유저의 정보. object 타입
+let firebaseEmailAuth; //파이어베이스 email 인증 모듈 전역변수
+let firebaseDatabase; //파이어베이스 db 모듈 전역변수
+let userInfo; //가입한 유저의 정보. object 타입
 
 
 // Your web app's Firebase configuration
@@ -17,7 +17,6 @@ const firebaseConfig = {
 // Initialize Firebase - 바로 호출하게 바꿔버림
 firebase.initializeApp(firebaseConfig);
 
-//내가추가////////////////////////////////////////////////////////
 firebaseEmailAuth = firebase.auth(); //파이어베이스 인증 객체
 firebaseDatabase = firebase.database(); //파이어베이스 데이터베이스 객체
 
@@ -27,8 +26,8 @@ $(document).ready(function(){
   //가입버튼 눌렀을 때
   $(document).on('click','.login',function(){
     //제이쿼리 선택자와 val() 함수를 이용해서 이메일,비밀번호 값을 가져온다. 
-    var email = $('#email').val();
-    var password = $('#password').val();
+    const email = $('#email').val();
+    const password = $('#password').val();
     alert("로그인 버튼 눌렸음" + email +":"+ password);
 
     //파이어베이스 이메일 로그인 함수
@@ -48,7 +47,6 @@ $(document).ready(function(){
 //로그인 성공했을 때
 function loginSuccess(firebaseUser){
   alert("로그인 성공");
-
   //로그인 성공한 유저 id 확인해 보기 - firebase database에 접근해서 데이터 조회 하는 함수
   firebaseDatabase.ref("users/"+firebaseUser.uid).once('value').then(function(snapshot){
   //alert(snapshot.val().name)
@@ -57,27 +55,52 @@ function loginSuccess(firebaseUser){
   window.location= "branch.html"
 }
 
-//내가추가////////////////////////////////////////////////////////
+////////////////////////// google로그인 때문에 추가한 부분//////////////////////////////////////
+// Google 제공업체 객체의 인스턴스를 생성합니다.
+let goo_provider = new firebase.auth.GoogleAuthProvider();
+//선택사항: 인증 제공업체에 요청하고자 하는 OAuth 2.0 범위를 추가로 지정합니다.
+// 범위를 추가하려면 addScope를 호출합니다. 예를 들면 다음과 같습니다.
+// 추가할 부분
 
+document.getElementById('google').addEventListener('click', ()=> {
+  console.log('구글로그인 버튼 눌림');
+  firebase.auth().signInWithPopup(goo_provider)
+  .then((result) => {
+    console.log(result.user);
+    // console.log('이메일은'+result.user.email);
+    window.location="branch.html";
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+});
+////////////////////////// google로그인 때문에 추가한 부분//////////////////////////////////////
 
-// // 로그인 관련
-// const db = firebase.firestore();
-// // 현재 로그인한 사용자 가져오기
-// firebase.auth().onAuthStateChanged((user) => {
-//   if (user) {
-//     console.log(user.uid);
-//     console.log(user.displayName); // 사용자 이름 받아와줌
-//     // innerHTML이 jquery에서는 html
-//     $("#displayName").html(user.displayName); 
-//   }
-// });
+/////////////////////////////// 깃헙 로그인 구현 시작///////////////////////////////////
+let git_provider = new firebase.auth.GithubAuthProvider();
 
-// $("#login").click(function(){
-//   // 사용자가 입력한 이메일, 비번, 핸폰번호, 이름
-//   const email = $("#email").val();
-//   const password = $("#password").val();
-//   firebase.auth().signInWithEmailAndPassword(email, password)
-//   .then((result) => {
-//     console.log(result.user);
-//   });
-// });
+document.getElementById('github').addEventListener('click', () => {
+  console.log('깃허브로그인 버튼 눌림');
+  firebase.auth().signInWithPopup(git_provider)
+  .then((result) => {
+    /** @type {firebase.auth.OAuthCredential} */
+    let credential = result.credential;
+    // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+    let token = credential.accessToken;
+    // The signed-in user info.
+    let user = result.user;
+    // ...
+    window.location="branch.html";
+    console.log(user);
+  }).catch((error) => {
+    // Handle Errors here.
+    let errorCode = error.code;
+    let errorMessage = error.message;
+    // The email of the user's account used.
+    let email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    let credential = error.credential;
+  })
+})
+/////////////////////////////// 깃헙 로그인 구현 끝////////////////////////////////////
+
