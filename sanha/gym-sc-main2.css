@@ -1,7 +1,6 @@
 * {
   box-sizing: border-box;
-  border: 0.5px solid red;
-  color: white;
+  /* border: 1px solid red; */
 }
 
 ul { /* 텍스트 옆에 콩알 없애기 */
@@ -14,7 +13,7 @@ a { /* 텍스트 아래에 줄 없애기 */
 }
 
 body {
-  background-color: rgb(23, 4, 107);/* 나중에 black */
+  background-color: white; /* 나중에 black */
   padding: 1px;
   margin: 0px;
 }
@@ -27,7 +26,7 @@ body {
   width: 100%; /* 1 */
   border-bottom: 1px solid #aaaaaa; /* 2 메뉴아래 구분선 */
   display: flex; /* 3 */
-  /* position: absolute; */
+  position: absolute;
   z-index: 2;          /* 헤더까지 영상이 올라오도록 하기 */
   top: 0px;
   left: 0px;
@@ -35,7 +34,7 @@ body {
   justify-content: space-between; /* 4 양 끝에 균등하게 배치 */
 }
 
-.header_left { /* 로고 */
+.header_left {
   padding: 0.5rem 1rem;
   margin: 0rem;
 }
@@ -43,11 +42,11 @@ body {
 h1 {
   font: bold 24px/1;
   font-family: 'Caveat', cursive;
-  color: white;
+  color: black;
   margin: 0rem 0.5rem;
 }
 
-.header_center { /*  */
+.header_center {
 
 }
 
@@ -56,7 +55,7 @@ h1 {
   margin-top: 1.2rem;
   margin-bottom: 0px;
   padding-left: 200px;
-  color: white;
+  color: black;
 }
 
 .header_ul01 li {
@@ -66,7 +65,7 @@ h1 {
 }
 
 .header_ul01 li a {
-  color: white;
+  color: black;
   font-size: 105%;
 }
 
@@ -86,12 +85,12 @@ h1 {
 .header_ul02 li {
   margin: 0.4rem 0rem;
   /* letter-spacing: 2px; 글자 간격 */
-  color: #aaaaaa;
+  color: black;
   font-size: 90%;
 }
 
 .header_ul02 li:hover{
-  color: white;
+  color: black;
 }
 
 
@@ -106,7 +105,7 @@ header .lnb li {
   margin-right: 10px;
 }
 
-.header_right { /* 로그인 */
+.header_right {
   padding: 0px;
   margin: 0.5rem 1.0rem;
 }
@@ -118,20 +117,23 @@ header .lnb li {
 }
 
 .home_login a {
-  color: white;
+  color: black;
 }
 
 header .btnMenu {
   font-size: 20px;
-  color: white;
+  color: black;
   display: none;
 }
 /* <!-- ////////// header 끝 main 시작 /////////// --> */
+.main{
+  padding-top: 15%;
+  color: black;
+}
 .sc01 {
   display: flex;
   justify-content: space-between; 
   padding: 2rem;
-  
 }
 .sc01-left{
  margin-left: 5%;
@@ -144,26 +146,23 @@ header .btnMenu {
 .sc-ul li{
   margin-left: 3rem;
   padding: 5px;
-}
-.sc01-right{
-  margin-right: 5%;
-}
-select{
-  color: #000000;
-}
-button{
-  color: black;
-}
-.sc-ul li{
-  padding: 0 20px 0 20px;
+   padding: 0 20px 0 20px;
   margin-right: 10px;
 }
 .sc-ul li a {
- color: white;
+}
+.sc01-right{
+  width: 15%;
+  height: 3%;
+  font-size: 10px;
+  margin-right: 5%;
 }
 .table-box{
   margin: 2% 5% 2% 5%;
   width: 90%;
+}
+.btn-regi{
+  padding-left: ;
 }
 .page-item{
   margin: 0.5rem;
@@ -172,6 +171,7 @@ button{
   background-color: aqua;
   color: black;
 }
+
 /* 메인 끝 푸터시작 */
 .footer_container {
   display: flex;
