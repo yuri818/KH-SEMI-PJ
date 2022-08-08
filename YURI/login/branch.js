@@ -53,8 +53,11 @@ function userSessionCheck() {
           });
         });
         document.getElementById("joinmenu").textContent = user.displayName + " 님";
-        document.getElementById("joinmenu").href = "#";
-
+        document.getElementById("joinmenu").addEventListener('click',()=>{
+          // 마이페이지로 이동하기
+          alert('마이페이지로 이동합니다.');
+          window.location.href = "./mypage.html";
+        });
         document.querySelector('#loginmenu').addEventListener('click',() => {
           window.location = "mdb-login.html";
         });
@@ -69,7 +72,6 @@ function userSessionCheck() {
       });
 
     } else {
-            $('#comment').val("로그인 하시면 사람들의 감사 리스트를 보실 수 있습니다. 로그인 해주실꺼죠^^?");
       return false
     }
   });

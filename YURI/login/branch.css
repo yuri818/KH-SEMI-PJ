@@ -209,3 +209,17 @@ header .btnMenu {
   margin-right: 15px;
   font-size: 20px;
 }
+
+
+/* 상세보기 버튼 */
+.btn.btn-primary.btn-sm {
+  margin: auto;
+  width: 5rem;
+  height: 2rem;
+}
+
+/* 지점 목록 이름과 버튼 간격 */
+.list-group-branch {
+  display: flex;
+  justify-content: space-between;
+}
