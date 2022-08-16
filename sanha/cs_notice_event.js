@@ -63,6 +63,29 @@ function userSessionCheck() {
           document.querySelector("#loginmenu").addEventListener("click", () => {
             window.location = "login.html";
           });
+
+          ///////// 로그인한 아이디 레벨 확인, 권한 부여 /////////////
+          const db = firebase.firestore();
+          const docRef = db.collection("user").doc(user.uid);
+          docRef.get().then((doc) => {
+            if (doc.exists) {
+              // 로그인 계정의 정보 콘솔에 출력하는 코드
+              // console.log("Document data:", doc.data());
+              
+              // 관리자는 레벨 5를 부여하여 회원과 구분함
+              if(doc.data().level > 1){
+                const test = document.querySelector("#write_register");
+                test.style.cssText =""
+                console.log("관리자 계정 확인, 숨겨진 버튼 보여줄게");
+              } else if(doc.data().level == 1){
+                console.log("회원 계정 확인");
+              } else console.log("비회원 확인");
+            } else {
+            }
+          }).catch((error) => {
+            console.log("에러 발생: ", error);
+          });
+
           loginUserKey = snapshot.key; //로그인한 유저의 key도 계속 쓸 것이기 때문에 전역변수로 할당
           userInfo = snapshot.val(); //snapshot.val()에 user 테이블에 있는 해당 개체 정보가 넘어온다. userInfo에 대입!
           return true;
@@ -105,7 +128,7 @@ class PageBar {
   }
   //setter메소드 선언
   setPageBar() {
-    console.log("nowBlock:" + this.nowBlock);
+    // console.log("nowBlock:" + this.nowBlock);
     let pageLink = "";
     //전체 레코드 수가 0보다 클때 처리하기
     if (this.totalRecord > 0) {
@@ -115,13 +138,13 @@ class PageBar {
       if (this.nowBlock > 0) {
         //(1-1)*2+(2-1)=1
         pageLink +=
-          "<button><a href='" +
+          "<a style='color: black;' href='" +
           this.pagePath +
           "?nowPage=" +
           ((this.nowBlock - 1) * this.pagePerBlock + (this.pagePerBlock - 1)) +
           "'>";
         pageLink += "<img border=0 src='./images/bu_a.gif'>";
-        pageLink += "</a></button>&nbsp;&nbsp;";
+        pageLink += "</a>&nbsp;&nbsp;";
       }
       for (let i = 0; i < this.pagePerBlock; i++) {
         //현재 내가 보고 있는 페이지 블록 일때와
@@ -132,13 +155,13 @@ class PageBar {
         //그렇지 않을 때를 나누어 처리해야 함.
         else {
           pageLink +=
-            "<button><a href='" +
+            "<a style='color: black;' href='" +
             this.pagePath +
             "?nowPage=" +
             (this.nowBlock * this.pagePerBlock + i) +
             "'>" +
             (this.nowBlock * this.pagePerBlock + i + 1) +
-            "</a></button>&nbsp;";
+            "</a>&nbsp;";
         }
         //모든 경우에 pagePerBlock만큼 반복되지 않으므로 break처리해야 함.
         //주의할 것.
@@ -170,20 +193,20 @@ function dbtable() {
   const db = firebase.firestore();
   let num = 0;
   let total = 0;
-  let numPerPage = 3;
+  let numPerPage = 5;
   let nowPage = 0;
   let param = new URLSearchParams(document.location.search);
   nowPage = param.get("nowPage");
 
   db.collection("ntc")
+    .where("cate", "==", "이벤트")
     .orderBy("write_date", "desc")
     .get()
     .then((snapshot) => {
-      console.log(snapshot); //[Object, Object] -> JSON.parse
-
-      console.log(JSON.stringify(snapshot));
+      // console.log(snapshot); //[Object, Object] -> JSON.parse
+      // console.log(JSON.stringify(snapshot));
       total = snapshot.docs.length;
-      console.log("전체레코드수==>" + total);
+      // console.log("전체레코드수==>" + total);
       for (
         let i = nowPage * numPerPage;
         i < nowPage * numPerPage + numPerPage;
@@ -191,22 +214,20 @@ function dbtable() {
       ) {
         if (total === i) break;
         num = i;
-        console.log(
-          snapshot.docs[i].id + ", 제목" + snapshot.docs[i].data().subject
-        );
+        // console.log(
+        //   snapshot.docs[i].id + ", 제목" + snapshot.docs[i].data().subject
+        // );
 
         const template = `
           <tr>
               <th scope="row">${++num}</th>
               <td>${snapshot.docs[i].data().cate}</td>
               // 수정으로 넘어가게 하는 모달창임 수정 없는 모달창은 그냥 cs-modal로
-              <td>
-              <a href="./cs-modal-modify.html?id=${
+              <td><a class="cs_title" href="./cs_edit.html?id=${
                 snapshot.docs[i].id
-              }"><button type="button" class="btn btn-primary" data-bs-toggle="modal">
-              <b>${snapshot.docs[i].data().subject}</b>
+              }">
+                ${snapshot.docs[i].data().subject}
               </a></td>
-              <td>${snapshot.docs[i].data().writer}</td>
               <td class="write_d">${snapshot.docs[i].data().write_date}</td>
             </tr>
           `;
@@ -214,7 +235,7 @@ function dbtable() {
       } //데이터 넣기
       $(".pagenation").append("");
       /*페이지 네비게이션 처리 위치*/
-      const pagePath = "cs-main-f.html";
+      const pagePath = "cs_notice.html";
       const pb = new PageBar(numPerPage, total, nowPage, pagePath);
       // out.print(pb.getPageBar()); class PageBar에서 생성되는 링크
       $(".pagenation").append(pb.getPageBar());
@@ -228,7 +249,7 @@ function searchList() {
   alert("검색" + choice + user_search);
   let num = 0;
   let total = 0;
-  let numPerPage = 3;
+  let numPerPage = 5;
   let nowPage = 0;
   let param = new URLSearchParams(document.location.search);
   nowPage = param.get("nowPage");
@@ -238,9 +259,9 @@ function searchList() {
     // .orderBy("write_date", "desc")
     .get()
     .then((snapshot) => {
-      console.log(JSON.stringify(snapshot));
+      // console.log(JSON.stringify(snapshot));
       total = snapshot.docs.length;
-      console.log("전체레코드수==>" + total);
+      // console.log("전체레코드수==>" + total);
       for (
         let i = nowPage * numPerPage;
         i < nowPage * numPerPage + numPerPage;
@@ -257,14 +278,12 @@ function searchList() {
         const template = `
     <tr>
               <th scope="row">${++num}</th>
-              <td>${snapshot.docs[i].data().cate}</td>
               // 수정으로 넘어가게 하는 모달창임 수정 없는 모달창은 그냥 cs-modal로
-              <td><a href="./cs-modal-modify.html?id=${
+              <td><a href="./cs_edit.html?id=${
                 snapshot.docs[i].id
-              }"><button type="button" class="btn btn-primary" data-bs-toggle="modal">
+              }">
                 ${snapshot.docs[i].data().subject}
               </a></td>
-              <td>${snapshot.docs[i].data().writer}</td>
               <td class="write_d">${snapshot.docs[i].data().write_date}</td>
             </tr>
           `;

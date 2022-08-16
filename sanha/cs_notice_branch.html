@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DaGym</title>
+  <title>DaGym</title> 
   <!-- 아이콘 fontawesome -->
   <script src="https://kit.fontawesome.com/afb658d092.js" crossorigin="anonymous"></script>
   <!-- CSS only -->
@@ -20,8 +20,14 @@
     @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Dosis&display=swap');
   </style>
   <!--   여기를 파일별로 수정해주세요!   -->
-  <script src="./cs-regi.js" defer></script>
-  <link rel="stylesheet" href="./cs-regi.css">
+  <script src="./cs_notice_branch.js" defer></script>
+  <link rel="stylesheet" href="./cs_main.css">
+  <style>
+    .write_register {
+      border: 1px solid gray; 
+      border-radius: 10px;
+    }
+  </style>
 </head>
 <body>
   <!-- 파이어베이스 -->
@@ -34,10 +40,6 @@
   <div class="body_wrap">
     <div class="left_line"></div>
     <a href="" class="top">&nbsp⇧</a>
-  <!-- ////////// header 시작 /////////// -->
-  <div class="body_wrap">
-    <div class="left_line"></div>
-    <a href="" class="top">&nbsp⇧</a>
     <!-- ////////// header 시작 /////////// -->
     <header class="header">
       <div class="header_right">
@@ -46,7 +48,7 @@
       </div>
       <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
-          <a class="navbar-brand">DaGYM</a>
+          <a class="navbar-brand" href="./main.html">DaGYM</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -71,7 +73,7 @@
                 </a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="./program_pt.html">PT</a></li>
-                  <li><a class="dropdown-item" href="./program_gx.html">GX</a></li>
+                  <li><a class="dropdown-item">GX</a></li>
                 </ul>
               </li>
   
@@ -89,7 +91,7 @@
                   고객센터
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/cs-main-f.html">공지사항</a></li>
+                  <li><a class="dropdown-item" href="./cs_notice.html">공지사항</a></li>
                   <li><a class="dropdown-item" href="./cs_qna.html">QnA</a></li>
                   <li><a class="dropdown-item" href="./cs_review.html">후기</a></li>
                 </ul>
@@ -101,50 +103,86 @@
       <div class="header_container">
       </div>
     </header>
-    
     <!-- ////////// header 끝 main 시작 /////////// -->
     <main class="main">
-      <section class="section01">
-      </section>
-      <br><br>
-      <form action="/insertProc" method="post">
-     <section class="section02">
-    <div class="container"><div class="form-group">
-      <select class="form-select" aria-label="Default select example">
-        <option selected>카테고리</option>
-        <option value="공지사항">공지사항</option>
-        <option value="이벤트">이벤트</option>
-        <option value="1:1문의">1:1문의</option>
-        <option value="자주하는질문">자주하는질문</option>
-        <option value="후기">후기</option>
-      </select>
-    </div>
-    <br>
-          <div class="form-group">
-            <label>제목</label>
-            <input type="text" class="form-control" id="subject" name="subject" placeholder="제목을 입력하세요.">
-          </div><br>
-          <div class="form-group">
-            <label>작성일</label>
-            <br>
-            <input type="text" class="form-control" id="write_date" name="writer" placeholder="내용을 입력하세요.">
-          </div><br>
-          <div class="form-group">
-            <label>작성자</label>
-            <div id="writer"></div>
-          </div><br>
-          <div class="form-group">
-            <label>내용</label>
-            <textarea class="form-control" id="content" name="content" rows="3"></textarea>
-          </div><br>
-          <div class="last">
-          <input type="file" class="form-control" name="image" id="image">
-          <br>
-           <button type="button" class="btn btn-primary" id="register">글쓰기</button>
-        </div>
-        <br><br>
-        </form>
-      </section>
+      <div class="main_container">
+        <!-- ////////// section01 시작 왼:카테고리 오른:검색 /////////// -->
+        <section class="section01">
+          <div class = "sc01">
+            <div class = "sc01-left">
+              <ul class="nav">
+                <li class="nav-item">
+                  <a style="color: black;">지점별 안내</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./cs_notice_event.html">이벤트</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./cs_notice.html">전체보기</a>
+                </li>
+
+              </ul>
+            </div>
+            <!-- left끝 right시작 -->
+            <div class = "sc01-right">
+              <nav class="navbar navbar-expand-lg bg-light" id="navbarexpendlgbglight">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <select
+                        class="form-select"
+                        aria-label="분류선택"
+                        name="gubun"
+                        id="gubun"
+                  >
+                    <option defaultValue>분류선택</option>
+                    <option value="subject">제목</option>
+                    <option value="content">내용</option>
+                  </select>
+                </div>
+                <div class="search_box">
+                  <div class="search_input">
+                    <input type="text" name ="keyword" id="keyword" class="form-control" placeholder="검색어를 입력하세요" aria-label="검색어를 입력하세요" aria-describedby="검색어를 입력하세요">
+                  </div>
+                  <div class="search_btn">
+                    <button class="btn btn-danger" id="btnSearch" onclick="searchList()">검색</button>
+                  </div>
+                </div>
+              </nav>
+            </div>
+            <!-- right끝 -->
+          </div>
+        </section>
+        </br>
+        <!-- ////////// section01 끝 section02 시작 테이블 /////////// -->
+        <section class="section02">
+          <!-- 테이블 크기 줄이기위한 방편=테이블박스 ㅡㅡ부트라 이래야하나봄 -->
+          <div class="table-box"> 
+            <table class= "table table-hover" class="gesi-table">
+              <thead class="table-dark">
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">유형</th>
+                  <th scope="col">제목</th>
+                  <th scope="col">작성일</th>
+                </tr>
+              </thead>
+              <tbody class="board-content"></tbody>
+            </table>
+          </div>
+        </section>
+        </br>
+        <!-- ////////// section02 끝 section03 시작 페이징 /////////// -->
+        <!-- 등록 버튼 1대1문의랑 후기(고객) / 관리자는 전체 -->
+        <section class="section03">
+          <table align="center">
+            <tbody class="pagenation"></tbody>
+          </table>
+          <div class="btn-regi">
+            <button type="submit" class="btn btn-light" onclick = "location.href = './cs_write.html'" 
+                    id="write_register" style="display: none;">글 쓰기</button>
+          </div>
+        </section>
+        <!-- ////////// section03 끝 /////////// -->
+      </div>
     </main>
     <!-- ////////// main 끝 footer 시작 /////////// -->
     <footer class="footer">
@@ -167,24 +205,15 @@
       </div>
     </footer>
   </div>
+  <!-- Top 맨 위로 이동 버튼 -->
   <script>
-    const btns = document.querySelectorAll(".gnb li");
-    btns.forEach((btn, index) => {
-      btn.addEventListener('click', (e) =>{
-        console.log(index);
-        for (let item of btns){
-          item.classList.remove('on');
-        }
-        btns[index].classList.add('on');
+    $(document).ready(function(){
+      //Click event
+      $('.top').click(function(){
+      $('html, body').animate({scrollTop : 0},800);
+      return false;
       });
     });
   </script>
-
 </body>
 </html>
-
-<!-- 
-  Global Navigation Bar : 전체페이지를 구성하는 메뉴 - gnb
-  Local Navigation Bar  : 로컬페이지를 구성하는 메뉴 - lnb
-
- -->

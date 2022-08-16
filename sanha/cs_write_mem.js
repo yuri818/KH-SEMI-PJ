@@ -63,17 +63,18 @@ function userSessionCheck() {
           document.querySelector("#loginmenu").addEventListener("click", () => {
             window.location = "login.html";
           });
+
           loginUserKey = snapshot.key; //로그인한 유저의 key도 계속 쓸 것이기 때문에 전역변수로 할당
           userInfo = snapshot.val(); //snapshot.val()에 user 테이블에 있는 해당 개체 정보가 넘어온다. userInfo에 대입!
           return true;
         });
     } else {
+      alert("로그인이 필요한 서비스입니다.");
       return false;
     }
     console.log(user.uid);
     const db = firebase.firestore();
     const storage = firebase.storage();
-
     $("#register").click(function () {
       const file = document.querySelector("#image").files[0];
       const storageRef = storage.ref();
@@ -98,42 +99,36 @@ function userSessionCheck() {
       const write_date = $("#write_date").val();
       // const writer = user.displayName;
       const content = $("#content").val();
-      data();
-      // location.href = "cs-main-f.html";
-      function data() {
-        if ("1:1문의" == cate) {
-          db.collection("QNA")
-            .add({
-              uid: user.uid,
-              cate: cate,
-              subject: subject,
-              write_date: write_date,
-              writer: user.displayName,
-              content: content,
-            })
 
-            .catch((error) => {
-              console.log(error);
-            });
-        } else {
-          db.collection("ntc")
-            .add({
-              uid: user.uid,
-              cate: cate,
-              subject: subject,
-              write_date: write_date,
-              writer: user.displayName,
-              content: content,
-            })
-            .catch((error) => {
-              console.log(error);
-            });
-        }
+      if ("1:1문의" == cate) {
+        db.collection("QNA")
+          .add({
+            uid: user.uid,
+            cate: cate,
+            subject: subject,
+            write_date: write_date,
+            writer: user.displayName,
+            content: content,
+          })
+          .catch((error) => {
+            console.log(error);
+          });
         alert("등록되었습니다");
-        setTimeout(function () {
-          window.location = "cs-main-f.html";
-        }, 1500);
-      } //data
-    }); //click
+      } else {
+        db.collection("ntc")
+          .add({
+            uid: user.uid,
+            cate: cate,
+            subject: subject,
+            write_date: write_date,
+            writer: user.displayName,
+            content: content,
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+        alert("등록되었습니다");
+      }
+    });
   });
 }

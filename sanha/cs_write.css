@@ -1,11 +1,11 @@
 * {
   box-sizing: border-box;
   /* border: 1px solid red; */
-  font-family: "Nanum Gothic", sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 }
 
 .left_line {
-  width: 20px;
+  width: 1rem;
   height: 100%;
   background: rgba(15, 2, 90, 0.726);
   position: fixed;
@@ -29,18 +29,16 @@
   border: rgba(47, 47, 172, 0.815) solid 2px;
 }
 
-.top:hover {
-  box-shadow: 0px 0px 10px 1px rgb(170, 170, 170);
+.top:hover{
+  box-shadow: 0px 0px 10px 1px rgb(57, 54, 70);
   color: white;
 }
 
-ul {
-  /* 텍스트 옆에 콩알 없애기 */
+ul, li { /* 텍스트 옆에 콩알 없애기 */
   list-style: none;
 }
 
-a {
-  /* 텍스트 아래에 줄 없애기 */
+a { /* 텍스트 아래에 줄 없애기 */
   text-decoration: none;
   color: white;
 }
@@ -49,86 +47,76 @@ body {
   background: linear-gradient(to right, rgb(14, 1, 71), rgb(36, 1, 189));
   /* background-color: rgb(14, 1, 71); */
   margin: 0px;
-  color: rgb(255, 255, 255);
+  color: white;
 }
 
-.dropdown-toggle::after {
-  /* 하단 화살표 없애기 */
-  display: none;
+.dropdown-toggle::after {/* 하단 화살표 없애기 */
+  display:none;
 }
 
 .header_container {
+  border-top: 2px solid #aaaaaa; /* 2 메뉴아래 구분선 */
   width: 100%; /* 1 */
-  border-bottom: 2px solid #aaaaaa; /* 2 메뉴아래 구분선 */
-  position: absolute;
-  z-index: 2; /* 헤더까지 영상이 올라오도록 하기 */
-  top: 0px;
-  left: 0px;
-  justify-content: space-between; /* 4 양 끝에 균등하게 배치 */
+  display: flex; /* 3 */
+  padding-bottom: 0.5rem;
 }
 
-.navbar-brand {
-  /* 로고 */
+.navbar-brand { /* 로고 */
   margin: 0.3rem 1rem;
   margin-left: 3%;
   margin-right: 10%;
   padding: 1%;
   color: white;
   font-weight: bold;
-  font-family: "Caveat", cursive;
+  font-family: 'Caveat', cursive;
   font-size: 2.5rem;
   margin-top: 0px;
   padding-top: 0px;
 }
 
-.navbar-brand:hover {
+.navbar-brand:hover{
   color: rgba(195, 195, 255, 0.459);
 }
 
-.navbar-brand:hover {
-  color: rgba(195, 195, 255, 0.459);
-}
-
-#nav-item {
+#nav-item{
   margin-left: 5%;
-  white-space: nowrap;
+  white-space:nowrap;
 }
 
-#navbar01 {
+#navbar01{
   letter-spacing: 0.2rem;
 }
 
-.nav-link {
+.nav-link{
   color: white;
   font-size: 105%;
   padding-top: 0px;
 }
 
-.nav-link:hover {
+.nav-link:hover{
   border-radius: 5px;
   /* text-decoration:underline;
-  text-underline-position:under; 밑줄 */
+  text-underline-position:under; 밑줄 */ 
   font-weight: bold;
   color: white;
 }
 
-.dropdown-item {
+.dropdown-item{
   color: white;
   font-size: 90%;
-  font-family: "Dosis", sans-serif;
+  font-family: 'Dosis', sans-serif;
 }
 
-.dropdown-item:hover {
+.dropdown-item:hover{
   background-color: rgba(255, 255, 255, 0.726);
   font-weight: bold;
 }
 
-.dropdown-menu {
-  background-color: rgba(14, 1, 71, 0.89);
+.dropdown-menu{
+  background: linear-gradient(to right, rgba(35, 1, 189, 0.726), rgba(14, 1, 71, 0.726));
 }
 
-.header_right {
-  /* 로그인 */
+.header_right { /* 로그인 */
   min-width: max-content;
   margin-right: 0.5rem;
   margin-top: 0.1rem;
@@ -152,64 +140,38 @@ body {
   padding: 0px;
 }
 
-.navbar-toggler {
+.navbar-toggler{
   /* border: solid red; */
   margin-bottom: 1%;
   margin-right: 1%;
   background: none;
   border: 0px;
 }
-/* 메인 */
-.section01 {
+
+.main_container{
   background-color: white;
-  width: 90%;
+  border-bottom: 2px solid #aaaaaa; /* 2 메뉴아래 구분선 */
+  padding: 5% 7%;
+  margin-left: 1rem;
+  color: black;
+}
+
+.form-group {
+  display: flex;
   align-items: center;
 }
-.sc01 {
-  display: flex;
-}
-.sc01-left {
-  padding-right: 35%;
+
+.form-group label{
+  width: 4rem;
 }
 
-.search_box {
-  display: flex;
-}
-.sc01-left li a {
-  color: black;
-}
-.section02 {
-  background-color: white;
-  padding-left: 7%;
-  padding-right: 7%;
+.register {
+  margin-top: 1rem;
   text-align: center;
 }
-a {
-  color: black;
-}
-.btn {
-  border: none;
-  /* background-color: rgba(14, 1, 71, 0.89); */
-  background-color: white;
-  width: 100%;
-}
-.section03 {
-  background-color: white;
-  display: flex;
-  color: black;
-  padding-left: 7%;
-  padding-right: 7%;
-}
 
-.section03 button {
-  border-radius: 20%;
-}
-.section03 button a {
-  color: black;
-}
-/* .pgbtn {
-  color: black;
-} */
+
+/* 메인 끝 푸터시작 */
 .footer_container {
   padding: 1% 2.5%;
   padding-left: 3%;

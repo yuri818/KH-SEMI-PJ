@@ -24,8 +24,8 @@
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="./cs-modal-modify.css" />
-    <script src="./cs-modal-modify_p.js"></script>
+    <link rel="stylesheet" href="./cs_edit.css" />
+    <script src="./cs_edit_review.js" defer></script>
   </head>
   <body>
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
@@ -56,7 +56,7 @@
         $("#exampleModal").modal("show");
         const readModal = document.getElementById("exampleModal");
         readModal.addEventListener("shown.bs.modal", () => {
-          db.collection("QNA")
+          db.collection("ntc")
             .doc(id)
             .get()
             .then((result) => {
@@ -90,7 +90,6 @@
               class="btn-close"
               data-bs-dismiss="modal"
               aria-label="Close"
-              id="mo1-close2"
             ></button>
           </div>
           <div class="modal-body">
@@ -111,19 +110,31 @@
           </div>
           <div class="modal-footer">
             <!-- 모달2(수정창)로 넘어가는 버튼 -->
+            <!-- 관리자 수정 못 봄 -->
+            <!-- 회원 수정, 삭제 못봄 -->
             <button
               class="btn btn-primary"
               data-bs-target="#exampleModalToggle"
               data-bs-toggle="modal"
               id="modifying-btn"
+              style="display: none"
             >
-              수정하기
+              수정
             </button>
+            <button
+              class="btn btn-primary"
+              data-bs-target="#exampleModalToggle"
+              data-bs-toggle="modal"
+              id="del-btn"
+            >
+              삭제
+            </button>
+
             <button
               type="button"
               class="btn btn-secondary"
               data-bs-dismiss="modal"
-              id="mo1-close"
+              id="mo1-close2"
             >
               Close
             </button>
@@ -177,12 +188,13 @@
             <br />
           </div>
           <div class="modal-footer">
-            <!-- 수정완료버튼 -->
+            <!-- 수정확인버튼 -->
             <button
               class="btn btn-primary"
               data-bs-target="#exampleModalToggle"
               data-bs-toggle="modal"
               id="modify_complete"
+              style="display: none"
             >
               수정완료
             </button>
@@ -193,15 +205,15 @@
               data-bs-toggle="modal"
               id="delete_complete"
             >
-              삭제
+              삭제완료
             </button>
             <button
-              class="btn btn-primary"
-              data-bs-target="#exampleModalToggle"
-              data-bs-toggle="modal"
-              class="btn-close"
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              id="mo1-close"
             >
-              Back to first
+              닫기
             </button>
           </div>
         </div>
