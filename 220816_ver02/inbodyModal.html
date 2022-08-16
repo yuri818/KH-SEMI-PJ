@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>인바디 상세보기</title>
+  <!-- CSS only -->
+  <link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+  crossorigin="anonymous">
+  <!-- JavaScript Bundle with Popper -->
+  <script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+  crossorigin="anonymous"
+></script>
+<!-- jquery 떄매 추가 -->
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous">
+</script>
+<link rel="stylesheet" href="./inbodyModal.css">
+<script src="./inbodyModal.js" defer></script>
+</head>
+<body>
+  <!---------------------- 파이어베이스 때매 추가------------------------------------ -->
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
+  <!---------------------- 파이어베이스 때매 추가------------------------------------ -->
+  <!-- Modal -->
+  <div class="modal fade" 
+        id="staticBackdrop" 
+        data-bs-backdrop="static" 
+        data-bs-keyboard="false" 
+        tabindex="-1" 
+        aria-labelledby="staticBackdropLabel" 
+        aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">인바디 이미지 상세조회입니다.</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img id="inbody_img" alt="인바디 사진" width="100%" height="100%">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
