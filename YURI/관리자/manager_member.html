@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DaGYM 고객관리</title>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./manager_member.css">
+  <script src="./manager.js" defer></script>
+</head>
+<body>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="./manager_home.html">DaGYM</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="./manager_home.html">수입 조회</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./manager_member.html">회원 관리</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./manager_trainer.html">직원 관리</a>
+            </li>
+            <li class="nav-item dropdown" id="nav-item">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                게시판
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">공지사항</a></li>
+                <li><a class="dropdown-item" href="#">자주하는 질문</a></li>
+                <li><a class="dropdown-item" href="#">1:1 문의</a></li>
+                <li><a class="dropdown-item" href="#">후기 게시판</a></li>
+              </ul>
+            </li>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="main_wraper">
+      <div class="category">
+        <!-- 이 div는 검색을 가운데로 보내기 위한 빈 div임 빼지 말아주세요!  -->
+        <div class="col-3"></div>
+        <div class="col-6">
+          <input type="text" name="keyword" id="keyword" class="form-control" id="search_value" placeholder="이름을 검색해주세요">
+        </div>
+        <div class="col-3">
+          <button id="btn_search" class="btn btn-secondary btn-light" style="border: 1px solid gray; margin-left: 10px;" onclick="searchList()">검색</button>
+        </div>
+      </div>
+      <table class="table table-bordered">
+        <thead class="table-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">이름</th>
+            <th scope="col">연락처</th>
+            <th scope="col">성별</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+        </tbody>
+      </table>
+      <p> * 이름 클릭 시 상세 페이지로 이동</p>
+    </div>
+  </main>
+</body>
+</html>
