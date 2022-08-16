@@ -13,7 +13,7 @@ $(document).ready(function () {
     $("#exampleModalToggle").modal("show");
     const readModal2 = document.getElementById("exampleModalToggle");
     readModal2.addEventListener("shown.bs.modal", () => {
-      db.collection("ntc")
+      db.collection("QNA")
         .doc(id)
         .get()
         .then((result) => {
@@ -42,7 +42,7 @@ $(document).ready(function () {
     //모달2도 모달1과 같은 url이라 똑같이 가져옴
     let id = params.get("id");
     console.log(id);
-    const moRef = db.collection("ntc").doc(id);
+    const moRef = db.collection("QNA").doc(id);
     // 파이어베이스는 수정하는 항목을 따로 지정해주어야함
     // 일단 타이틀이랑 내용만 수정할 수 있게 해둠
     return moRef
@@ -71,7 +71,7 @@ $(document).ready(function () {
     let id = params.get("id");
     console.log(id);
     //파이어베이스 삭제는 .delete()만 추가하면 됨 짱
-    db.collection("ntc")
+    db.collection("QNA")
       .doc(id)
       .delete()
       .then(() => {
@@ -87,15 +87,15 @@ $(document).ready(function () {
   //히든될때마다 리로드돼서 첫번째모달에선 못씀
   $("#exampleModalToggle").on("hidden.bs.modal", function () {
     console.log("모달2에서 첫창 넘어왔나요?");
-    location.href = "cs-main-f.html";
+    location.href = "cs-personal-f.html";
   });
 
   document.getElementById("mo1-close").onclick = () => {
     console.log("버튼 누르고 첫창 넘어왔나요?");
-    location.href = "cs-main-f.html";
+    location.href = "cs-personal-f.html";
   };
   document.getElementById("mo1-close2").onclick = () => {
     console.log("버튼 누르고 첫창 넘어왔나요?");
-    location.href = "cs-main-f.html";
+    location.href = "cs-personal-f.html";
   };
 });

@@ -25,7 +25,7 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="./cs-modal-modify.css" />
-    <script src="./cs-modal-modify.js"></script>
+    <script src="./cs-modal-modify_p.js"></script>
   </head>
   <body>
     <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
@@ -56,7 +56,7 @@
         $("#exampleModal").modal("show");
         const readModal = document.getElementById("exampleModal");
         readModal.addEventListener("shown.bs.modal", () => {
-          db.collection("ntc")
+          db.collection("QNA")
             .doc(id)
             .get()
             .then((result) => {
