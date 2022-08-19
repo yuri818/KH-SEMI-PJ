@@ -38,6 +38,7 @@ function userSessionCheck() {
                 const p_name = doc.data().p_name;
                 const branch = doc.data().p_branch;
                 const duration = doc.data().duration;
+                const p_date = doc.data().purchase_date;
                 const template = `
                 <h4 style="color: slateblue;"> <${++num} 번째 구매내역></h4>
                 <label>회원명:  </label>
@@ -57,6 +58,9 @@ function userSessionCheck() {
                 <br>
                 <label>등록 기간: </label>
                 <span>${duration}</span>
+                <br>
+                <label>등록한 날짜: </label>
+                <span>${p_date}</span>
                 <hr>
                 `
                 $(".modal-body").append(template);

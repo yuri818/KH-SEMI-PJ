@@ -134,26 +134,6 @@ function userSessionCheck() {
                 $(".list-group").append(template);
               }////end of for
             })/////end of callback
-            $("#exampleModalToggle").modal("show");
-            const readModal2 = document.getElementById("exampleModalToggle");
-            readModal2.addEventListener("shown.bs.modal", () => {
-              db.collection("QNA")
-                .doc(id)
-                .get()
-                .then((result) => {
-                  console.log(result.data());
-                  console.log(result.data().cate);
-                  //인풋이기 때문에 밸류값으로 가져옴, content도 동일
-                  const subject = result.data().subject;
-                  $("#input-title2").val(subject);
-                  const writer = result.data().writer;
-                  $("#writer2").text(writer);
-                  const write_date = result.data().write_date;
-                  $("#write_date2").text(write_date);
-                  const content = result.data().content;
-                  $("#input-content2").val(content);
-                });
-              });
         }//end of searchList()
         /* *************************1:1 문의 목록 불러오기   끝************************************ */
         /* 목록보기들 버튼 누를 때 */
