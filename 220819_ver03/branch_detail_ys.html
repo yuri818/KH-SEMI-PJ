@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GYM</title>
+  <!-- 아이콘 fontawesome -->
+  <script src="https://kit.fontawesome.com/afb658d092.js" crossorigin="anonymous"></script>
+  <!-- 구글 폰트 -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Dosis&family=Nanum+Gothic&family=Ubuntu:wght@300&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Barlow&family=Ruda&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Dosis&display=swap');
+  </style>
+  <!-- 부트스트랩 때문에 추가한 부분들 -->
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+  <!-- jquery관련 -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script src="./about.js" defer></script>
+    <link rel="stylesheet" href="./branch_detail_ys.css">
+</head>
+<body>
+    <!-- 파베 때매 추가한 부분 -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
+    <!-- 파베 때매 추가한 부분 -->
+  <div class="body_wrap">
+    <div class="left_line"></div>
+    <a href="" class="top">&nbsp⇧</a>
+    <!-- ////////// header 시작 /////////// -->
+    <header class="header">
+          <div class="header_right">
+            <button class="home_login" id="loginmenu"><a href="./login.html">로그인</a></button>
+            <button class="home_signup" id="joinmenu"><a href="./signUp.html">회원가입</a></button>
+          </div>
+          <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="./main.html">DaGYM</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 " id="navbar01">
+                  <li class="nav-item dropdown" id="nav-item">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                    style="font-family: 'Dosis', sans-serif;">
+                      ABOUT
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="./about_intro.html">회사소개</a></li>
+                      <li><a class="dropdown-item" href="./about_contacts.html">CONTACTS</a></li>
+                    </ul>
+                  </li>
+      
+                  <li id="nav-item" class="nav-item"><a class="nav-link" href="./branch.html">지점안내</a></li>
+      
+                  <li class="nav-item dropdown" id="nav-item">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      프로그램
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="./program_pt.html">PT</a></li>
+                      <li><a class="dropdown-item" href="./program_gx.html">GX</a></li>
+                    </ul>
+                  </li>
+      
+                  <li class="nav-item dropdown" id="nav-item">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      회원전용
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="./private_register.html">수강신청</a></li>
+                      <li><a class="dropdown-item" href="./private_purchase.html">이용권 구매</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown" id="nav-item">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      고객센터
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="./cs_notice.html">공지사항</a></li>
+                      <li><a class="dropdown-item" href="./cs_qna.html">QnA</a></li>
+                      <li><a class="dropdown-item" href="./cs_review.html">후기</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          <div class="header_container">
+          </div>
+    </header>
+    <!-- ////////// header 끝 main 시작 /////////// -->
+    <main class="main">
+            <div class="main_container">
+                <div class="intro_branch_detail">
+                    <div class="branch_title"><h1>역삼점</h1></div>
+                    <div class="intro_branch_detail_info">
+                        <div class="branch_intro_img" style="width: 65%;">
+                            <img src="https://www.momondo.com.au/himg/1b/59/5b/expediav2-4609585-8aec82-276296.jpg" class="img-fluid" alt="...">
+                        </div>
+                        <table class="table table-borderless">
+                            <tbody>
+                                <tr>
+                                    <th>주소</th>
+                                    <td><b>서울특별시 강남구 테헤란로 14길 6 남도빌딩 2F</b></td>
+                                </tr>
+                                <tr>
+                                    <th>전화번호</th>
+                                    <td><b>02-556-2274</b></td>
+                                </tr>
+                                <tr>
+                                    <th>운영시간</th>
+                                    <td><b> 평일 06:00 - 24:00
+                                        </br>
+                                        토요일 08:00 - 23:00
+                                        </br>
+                                        일요일 10:00 - 18:00
+                                        </br>
+                                        공휴일 10:00 - 18:00
+                                        </br>
+                                        매월 넷째 주 일요일 휴무
+                                      </b>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="intro_ys_detail"> 
+                    <p>
+                      <b>
+                        1. 약 300여 평 규모와 역삼역 최고의 시설로 오픈한 Dagym의 역삼점은 다양한 G.X 를 갖춘 종합 피트니스 브랜드입니다. <br>
+                        2. 약 30여 종의 유산소 기구, 40여 종의 다양한 운동시설과 쾌적한 샤워시설이 준비되어 있습니다.
+                          ※ 웨이트 머신 브랜드 : 해외 최고급 테크노짐 풀세트 <br>
+                        3. 합리적인 비용으로 헬스는 물론 스피닝, 필라테스, 에어로빅 등 다양한 G.X 프로그램을 모두 이용하실 수 있습니다.<br>
+                          (G.X 예약방식은 홈페이지 회원전용 메뉴를 참고해주시길 바랍니다.) <br>
+                        4. 각종 트레이닝 전문 교육을 이수한 스포애니 트레이너로부터 체계적인 퍼스널 트레이닝을 받아 보실 수 있습니다.
+                      </b>
+                    </p>
+                    </div>
+                </div>
+                <hr>
+                <div class="intro_trainer">
+                    <div class="branch_title"><h1>트레이너 소개</h1></div>
+                    <div class="album" style="padding: 0px">
+                        <div class="container">
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                            <div class="col">
+                                <div class="card shadow-sm">
+                                    <img src="https://www.witseducation.com/fit/wp-content/uploads/2014/12/lifestyle-wellness-coaching-trainer.jpg" class="img-fluid" alt="...">
+                                    <div class="card-body">
+                                        <h3><b>홍길동 / 지점장</b></h3>
+                                        <p class="card-text">"회원님들의 끊임없는 성장에 기여하기 위해 쉼 없이 움직이도록 하겠습니다."<br><br>
+                                            [자격사항] <br>
+                                            - NASM KARPE Certified Personal Trainer <br> (퍼스널트레이너 전문가) <br>
+                                            - NASM KARPE Corrective Exercise Training <br> (교정운동 전문가) <br>
+                                            - NASM KARPE performance enhancement specialist <br> (운동수행능력향상 전문가)
+                                        </p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card shadow-sm">
+                                    <img src="https://media1.popsugar-assets.com/files/thumbor/gQ_wHE7f2ErFz3yi0sdHLksruQE/952x0:4600x3648/fit-in/550x550/filters:format_auto-!!-:strip_icc-!!-/2022/07/21/851/n/1922729/3e11c48762d9a8667038c3.45116868_/i/popsugar-trainer-khetanya-henderson.jpg" class="img-fluid" alt="...">
+                                    <div class="card-body">
+                                      <h3><b>김민경 / 트레이너</b></h3>
+                                        <p class="card-text">"모든분들이 운동을 통해 몸도 마음도 건강하실 수 있도록 돕겠습니다."<br><br>
+                                          [자격사항] <br>
+                                          - ACSM CPT 교육 수료 <br>
+                                          (미국 스포츠의학회 공인 퍼스널트레이너)<br>
+                                          - Exercise Specialist Course Level.3<br>
+                                          (체형교정&통증조절 전문가 과정 레벨3)<br>
+                                          - RTS Level 1.2<br>
+                                          (재활트레이닝 전문가 과정 레벨2)<br>
+                                          - CRT근막이완 교육 수료
+                                        </p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card shadow-sm">
+                                    <img src="https://cdn.gethypervisual.com/images/shopify/79dc84e4-8433-4e34-97ba-afed60c0b502/5864_britany-williams-mob.png" class="img-fluid" alt="...">
+                                    <div class="card-body">
+                                      <h3><b>이다연 / 트레이너</b></h3>
+                                        <p class="card-text">"회원님들이 쉽고 빠르게 다치지 않도록 올바른 운동습관을 잡을수 있도록 도와드리겠습니다."<br><br>
+                                          [자격사항] <br>
+                                          - ACSM CPT 교육 수료<br>
+                                          (미국 스포츠의학회 공인 퍼스널트레이너)<br>
+                                          - 교원자격증 2급<br>
+                                          - 밸런스바디 필라테스 레벨1 매트 수료<br>
+                                          - 밸런스바디 필라테스 레벨2 대기구 수료<br>
+                                          - 밸런스바디 필라테스 지도자 5기 수료<br>
+                                          - 스포츠마사지 자격증 수료
+                                        </p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card shadow-sm">
+                                    <img src="https://www.sustainablebb.com/wp-content/uploads/2020/04/come-diventare-personal-trainer.jpg" class="img-fluid" alt="...">
+                                    <div class="card-body">
+                                      <h3><b>박성길 / 트레이너</b></h3>
+                                        <p class="card-text">"Dagym를 통해 회원님들의 삶의 질을 고양시켜 드리도록 최선을 다하겠습니다."<br><br>
+                                          [자격사항] <br>
+                                          - 생활체육지도자2급(보디빌딩)<br>
+                                          - FISAF 국내국제 트레이너 자격증<br>
+                                          - 근막통증 재활교육수료<br>
+                                          - KOREAN CHIROPRACTIC SOCIETY 자격<br>
+                                          - 기능해부학 교육 수료
+                                        </p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card shadow-sm">
+                                    <img src="https://media1.popsugar-assets.com/files/thumbor/Czipb-uZaHzgQCnY3NuE1WWCZL8/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2022/07/22/010/n/1922729/tmp_ZEp8BV_9b8f25ca50f81c06_PS22_CFS_Jasmine_Promo-3490.jpg" class="img-fluid" alt="...">
+                                    <div class="card-body">
+                                      <h3><b>오송아 / 트레이너</b></h3>
+                                        <p class="card-text">"열정을 가지고 회원님들과 함께 소통하고, 전문성을 가지고 깊은 신뢰를 형성하겠습니다."<br><br>
+                                          [자격사항] <br>
+                                          - ACSM CPT 교육 수료 <br> 
+                                          (미국스포츠의학회 공인 퍼스널트레이너)<br>
+                                          - FISAF KOREA P.T 국내, 국제 자격<br>
+                                          - FISAF KOREA O.A 성적우수증서 취득<br>
+                                          - Corrective Training Certificate 수료<br>
+                                        </p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card shadow-sm">
+                                    <img src="https://sistemasca.blob.core.windows.net/arquivos/blog/c-1656dm.jpg" class="img-fluid" alt="...">
+                                    <div class="card-body">
+                                      <h3><b>하지훈 / 트레이너</b></h3>
+                                        <p class="card-text">"회원님의 근본적인 문제 해결을 위해 항상 공부하며, 올바른 운동 방향으로 이끌겠습니다."<br><br>
+                                          [자격사항] <br>
+                                          - ACSM CPT 교육 수료 <br> 
+                                            (미국스포츠의학회 공인 퍼스널트레이너)<br>
+                                          - 생활스포츠지도사 2급 (보디빌딩)<br>
+                                          - BASTM technique 수료<br>
+                                          - 심폐소생술 CPR 자격<br>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+    <!-- ////////// main 끝 footer 시작 /////////// -->
+    <footer class="footer">
+      <div class="footer_container">
+        <div class="icons">
+          <a href="" class="icon"><img src="../files/sns/f_sns_01.png" alt="facebook"></a>
+          <a href="" class="icon"><img src="../files/sns/f_sns_02.png" alt="blog"></a>
+          <a href="" class="icon"><img src="../files/sns/f_sns_03.png" alt="youtube"></a>
+          <a href="" class="icon"><img src="../files/sns/f_sns_04.png" alt="instagram"></a>
+        </div>
+        <div class="foot_link">
+          <a href="" class="foot_detail">회사소개</a>&nbsp | &nbsp
+          <a href="" class="foot_detail">CONTACT US</a> &nbsp|&nbsp 
+          <a href="" class="foot_detail">개인정보처리방침</a>
+        </div>
+        <div class="foot_info" style="font-family: 'Ubuntu', sans-serif;">
+          서울특별시 강남구 테헤란로 14길 6 남도빌딩 2F<br> 사업자등록번호 : 123-45-67891 &nbsp|&nbsp 대표이사 : 김승수
+          <br>Copyright ⓒ 2022 다짐 &nbsp|&nbsp All rights reserved. Designed by 00dragon
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script>
+    const btns = document.querySelectorAll(".gnb li");
+    btns.forEach((btn, index) => {
+      btn.addEventListener('click', (e) =>{
+        console.log(index);
+        for (let item of btns){
+          item.classList.remove('on');
+        }
+        btns[index].classList.add('on');
+      });
+    });
+  </script>
+</body>
+</html>

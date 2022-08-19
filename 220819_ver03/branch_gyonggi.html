@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GYM</title>
+  <!-- 아이콘 fontawesome -->
+  <script src="https://kit.fontawesome.com/afb658d092.js" crossorigin="anonymous"></script>
+  <!-- 구글 폰트 -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Dosis&family=Nanum+Gothic&family=Ubuntu:wght@300&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Barlow&family=Ruda&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Dosis&display=swap');
+  </style>
+  <!-- 부트스트랩 때문에 추가한 부분들 -->
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+  <!-- jquery관련 -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script src="./branch.js" defer></script>
+  <link rel="stylesheet" href="./branch.css">
+  <!-- 카카오맵 개인키 -->
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=36b749268aceae97ceff31423ba76977"></script>
+</head>
+<body>
+  <!-- 파베 때매 추가한 부분 -->
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
+  <!-- 파베 때매 추가한 부분 -->
+<!-- 
+  모든 페이지 공통 요소 >> header & footer는 손대지말고
+  main에만 요소 추가해서 페이지 구현합시다!
+  -->
+  <div class="body_wrap">
+    <div class="left_line"></div>
+    <a href="" class="top">&nbsp⇧</a>
+    <!-- ////////// header 시작 /////////// -->
+    <header class="header">
+      <div class="header_right">
+        <button class="home_login" id="loginmenu"><a href="./login.html">로그인</a></button>
+        <button class="home_signup" id="joinmenu"><a href="./signUp.html">회원가입</a></button>
+      </div>
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="./main.html">DaGYM</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 " id="navbar01">
+              <li class="nav-item dropdown" id="nav-item">
+                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                style="font-family: 'Dosis', sans-serif;">
+                  ABOUT
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="./about_intro.html">회사소개</a></li>
+                  <li><a class="dropdown-item" href="./about_contacts.html">CONTACTS</a></li>
+                </ul>
+              </li>
+  
+              <li id="nav-item" class="nav-item"><a class="nav-link" href="./branch.html">지점안내</a></li>
+  
+              <li class="nav-item dropdown" id="nav-item">
+                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  프로그램
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="./program_pt.html">PT</a></li>
+                  <li><a class="dropdown-item" href="./program_gx.html">GX</a></li>
+                </ul>
+              </li>
+  
+              <li class="nav-item dropdown" id="nav-item">
+                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  회원전용
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="./private_register.html">수강신청</a></li>
+                  <li><a class="dropdown-item" href="./private_purchase.html">이용권 구매</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown" id="nav-item">
+                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  고객센터
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="./cs_notice.html">공지사항</a></li>
+                  <li><a class="dropdown-item" href="./cs_qna.html">QnA</a></li>
+                  <li><a class="dropdown-item" href="./cs_review.html">후기</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="header_container">
+      </div>
+    </header>
+  <!-- ////////// header 끝 main 시작 /////////// -->
+  <main class="main">
+    <div class="main_container"> 
+      <!-- 지도와 검색을 감싸는 박스 -->
+      <div class="map_box">
+        <!-- 지도를 넣는 영역 -->
+        <div class="map_top">
+          <div id="map" style="width:100%;height:400px; margin: auto;"></div>
+        </div>
+        <!-- hashtag와 검색기능 넣는 영역 -->
+        <div class="map_bottom">
+          <!-- 이 div는 해시태그 넣는 것 감싸는 용도 -->
+          <div>
+            <!-- tag들 추가 -->
+            <div class="tag">
+              <ul class="taglist">
+                <li class="taglist-item"><a href="./branch.html">#ALL</a></li>
+                <li class="taglist-item"><a href="./branch_seoul.html">#서울</a></li>
+                <li class="taglist-item"><a href="./branch_gyonggi.html">#경기</a></li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <!-- 부트스트랩에서 따온 것..  navbar 복붙함 -->
+            <nav class="navbar navbar-expand-lg bg-light">
+              <div class="container-fluid" id="bbb_list">
+                <h3 id="branch_list">지점 목록</h3>
+                  <form class="d-flex" role="search">
+                    <input id="search_value" class="form-control me-4" type="text" placeholder="지점명을 입력해주세요." aria-label="Search">
+                    <button class="btn btn-outline-primary" type="button" id="search_btn"
+                    style="border: 1px solid rgba(52, 52, 185, 0.575); color: rgba(52, 52, 185, 0.575);">
+                    Search</button>
+                  </form>
+              </div>
+            </nav>
+            <!-- 여기까지가 찾기버튼 줄 부트스트랩 -->
+            <!-- 이 밑으로 지점들 목록 나오깅 -->
+              <div class="list-group">
+                <div class="list-group-branch">
+                  <a href="#" onclick="initMap(37.32254941546262,127.09569660469833,1)" class="list-group-item list-group-item-action">용인수지점</a>
+                  <button type="button" id="btn_detail_yis" class="btn btn-primary btn-sm">상세보기</button>
+                </div>
+                <div class="list-group-branch">
+                  <a href="#" onclick="initMap(37.394069424163845,127.11252089040556,1)" class="list-group-item list-group-item-action">판교점</a>
+                  <button type="button" id="btn_detail_pg" class="btn btn-primary btn-sm">상세보기</button>
+                </div>
+                <div class="list-group-branch">
+                  <a href="#" onclick="initMap(37.267444542367585, 127.0043067027139,1)" class="list-group-item list-group-item-action">수원역점</a>
+                  <button type="button" id="btn_detail_sw" class="btn btn-primary btn-sm">상세보기</button>
+                </div>
+                <div class="list-group-branch">
+                  <a class="list-group-item list-group-item-action">동탄점</a>
+                  <button type="button" id="btn_detail_dt" class="btn btn-primary btn-sm">상세보기</button>
+                </div>
+                <div class="list-group-branch">
+                  <a class="list-group-item list-group-item-action">일산점</a>
+                  <button type="button" id="btn_detail_is" class="btn btn-primary btn-sm">상세보기</button>
+                </div>
+                <div class="list-group-branch">
+                  <a class="list-group-item list-group-item-action">부천역점</a>
+                  <button type="button" id="btn_detail_bc" class="btn btn-primary btn-sm">상세보기</button>
+                </div>
+                <div class="list-group-branch">
+                  <a href="#" onclick="initMap(37.42895600203322, 126.99056312287979,1)" class="list-group-item list-group-item-action">과천점</a>
+                  <button type="button" id="btn_detail_gc" class="btn btn-primary btn-sm">상세보기</button>
+                </div>
+                <div class="list-group-branch">
+                  <a href="#" onclick="initMap(37.39356634016513, 126.95932560847847,1)" class="list-group-item list-group-item-action">안양시청점</a>
+                  <button type="button" id="btn_detail_ay" class="btn btn-primary btn-sm">상세보기</button>
+                </div>
+                <div class="list-group-branch">
+                  <a href="#" onclick="initMap(37.369695737370535, 126.80936490604036,1)" class="list-group-item list-group-item-action">시흥점</a>
+                  <button type="button" id="btn_detail_ay" class="btn btn-primary btn-sm">상세보기</button>
+                </div>
+                <div class="list-group-branch">
+                  <a class="list-group-item list-group-item-action">하남점</a>
+                  <button type="button" id="btn_detail_hn" class="btn btn-primary btn-sm">상세보기</button>
+                </div>
+              </div>
+          </div>
+          <!-- 검색하고 난 목록 끝 -->
+        </div>
+        <!-- 해시태그와 검색부분 끝!!!! -->
+      </div>
+      <!-- 지도와 검색을 감싼 부분 끝 -->
+    </div>
+  </main>
+   <!-- ////////// main 끝 footer 시작 /////////// -->
+  <footer class="footer">
+    <div class="footer_container">
+      <div class="icons">
+        <a href="" class="icon"><img src="../files/sns/f_sns_01.png" alt="facebook"></a>
+        <a href="" class="icon"><img src="../files/sns/f_sns_02.png" alt="blog"></a>
+        <a href="" class="icon"><img src="../files/sns/f_sns_03.png" alt="youtube"></a>
+        <a href="" class="icon"><img src="../files/sns/f_sns_04.png" alt="instagram"></a>
+      </div>
+      <div class="foot_link">
+        <a href="" class="foot_detail">회사소개</a>&nbsp | &nbsp
+        <a href="" class="foot_detail">CONTACT US</a> &nbsp|&nbsp 
+        <a href="" class="foot_detail">개인정보처리방침</a>
+      </div>
+      <div class="foot_info" style="font-family: 'Ubuntu', sans-serif;">
+        서울특별시 강남구 테헤란로 14길 6 남도빌딩 2F<br> 사업자등록번호 : 123-45-67891 &nbsp|&nbsp 대표이사 : 김승수
+        <br>Copyright ⓒ 2022 다짐 &nbsp|&nbsp All rights reserved. Designed by 00dragon
+      </div>
+    </div>
+  </footer>
+  <script>
+    const btns = document.querySelectorAll(".gnb li");
+    btns.forEach((btn, index) => {
+      btn.addEventListener('click', (e) =>{
+        console.log(index);
+        for (let item of btns){
+          item.classList.remove('on');
+        }
+        btns[index].classList.add('on');
+      });
+    });
+  </script>
+</body>
+</html>
+
+<!-- 
+  Global Navigation Bar : 전체페이지를 구성하는 메뉴 - gnb
+  Local Navigation Bar  : 로컬페이지를 구성하는 메뉴 - lnb
+
+ -->
