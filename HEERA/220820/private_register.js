@@ -261,6 +261,8 @@ function userSessionCheck() {
     document.getElementById('name_select_view').addEventListener('change', () => {
         console.log('바뀌었나');
         SearchCategory();
+        // 수강과목 카테 검색시 날짜 검색input값 초기화
+        document.getElementById('date_keyword').value = null;
     })
 
     ////////////////  날짜 검색 기능 /////////////////
@@ -323,16 +325,19 @@ function userSessionCheck() {
             })
         })
     }
-    ////// 날짜 검색 엔터 눌렀을 때 함수호출//////
+    //////수강 날짜 enter검색//////
     document.getElementById('date_keyword').addEventListener('keydown', (e) => {
         if(e.keyCode == 13){
             SearchDate();
+            // 날짜 검색시 수강과목 선택 초기화
+            $("#name_select_view option:eq(0)").prop("selected", true);
         }
     })
     //////////날짜 검색 함수 호출//////////////
     document.getElementById('button-addon2').addEventListener('click', () => {
         console.log('검색되나');
         SearchDate();
+        $("#name_select_view option:eq(0)").prop("selected", true);
     })
 
 
