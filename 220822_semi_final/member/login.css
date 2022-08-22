@@ -1,0 +1,25 @@
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #6a11cb;
+  
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+  
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+  }
+
+  .navbar-brand { /* 로고 */
+    padding: 1%;
+    color: white;
+    font-weight: bold;
+    font-family: 'Caveat', cursive;
+    font-size: 3.5rem;
+    margin-top: 0px;
+    padding-top: 0px;
+    padding-bottom: 3rem;
+  }
+
+  .navbar-brand:hover{
+    color: rgba(195, 195, 255, 0.459);
+  }

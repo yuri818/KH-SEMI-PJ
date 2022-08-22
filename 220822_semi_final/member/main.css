@@ -1,0 +1,286 @@
+* {
+  box-sizing: border-box;
+  /* border: 1px solid red; */
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+.left_line {
+  width: 20px;
+  height: 100%;
+  background: rgba(15, 2, 90, 0.726);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 200;
+}
+
+.top {
+  background-color: rgba(152, 152, 212, 0.692);
+  position: fixed;
+  z-index: 200;
+  bottom: 5%;
+  right: -1%;
+  border-radius: 10%;
+  color: rgb(255, 255, 255);
+  width: 50px;
+  height: 50px;
+  font-weight: bold;
+  font-size: 150%;
+  border: rgba(47, 47, 172, 0.815) solid 2px;
+}
+
+.top:hover{
+  box-shadow: 0px 0px 10px 1px rgb(170, 170, 170);
+  color: white;
+}
+
+ul { /* 텍스트 옆에 콩알 없애기 */
+  list-style: none;
+}
+
+a { /* 텍스트 아래에 줄 없애기 */
+  text-decoration: none;
+  color: white;
+}
+
+body {
+  background: linear-gradient(to right, rgb(14, 1, 71), rgb(36, 1, 189));
+  /* background-color: rgb(14, 1, 71); */
+  margin: 0px;
+  color: rgb(255, 255, 255);
+}
+
+.dropdown-toggle::after {/* 하단 화살표 없애기 */
+  display:none;
+}
+
+.header {
+  width: 100%; /* 1 */
+  border-bottom: 2px solid #aaaaaa; /* 2 메뉴아래 구분선 */
+  position: absolute;
+  z-index: 2;          /* 헤더까지 영상이 올라오도록 하기 */
+  top: 0px;
+  left: 0px;
+  justify-content: space-between; /* 4 양 끝에 균등하게 배치 */
+}
+
+.navbar-brand { /* 로고 */
+  margin: 0.3rem 1rem;
+  margin-left: 3%;
+  margin-right: 10%;
+  padding: 1%;
+  color: white;
+  font-weight: bold;
+  font-family: 'Caveat', cursive;
+  font-size: 2.5rem;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+.navbar-brand:hover{
+  color: rgba(195, 195, 255, 0.459);
+}
+
+#nav-item{
+  margin-left: 5%;
+  white-space:nowrap;
+}
+
+#navbar01{
+  letter-spacing: 0.2rem;
+}
+
+.nav-link{
+  color: white;
+  font-size: 105%;
+  padding-top: 0px;
+}
+
+.nav-link:hover{
+  border-radius: 5px;
+  /* text-decoration:underline;
+  text-underline-position:under; 밑줄 */ 
+  font-weight: bold;
+  color: white;
+}
+
+.dropdown-item{
+  color: white;
+  font-size: 90%;
+  font-family: 'Dosis', sans-serif;
+}
+
+.dropdown-item:hover{
+  background-color: rgba(255, 255, 255, 0.726);
+  font-weight: bold;
+}
+
+.dropdown-menu{
+  background-color: rgba(14, 1, 71, 0.89);
+}
+
+.header_right { /* 로그인 */
+  min-width: max-content;
+  margin-right: 0.5rem;
+  margin-top: 0.1rem;
+  text-align: right;
+}
+
+.header_right button {
+  background: none;
+  border: white solid 1px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-size: 75%;
+}
+
+.header_right button:hover {
+  font-weight: bold;
+}
+
+.navbar {
+  padding: 0px;
+}
+
+.navbar-toggler{
+  /* border: solid red; */
+  margin-bottom: 1%;
+  margin-right: 1%;
+  background: none;
+  border: 0px;
+}
+
+.main_container{
+  background-color: white;
+  border-bottom: 2px solid #aaaaaa; /* 2 메뉴아래 구분선 */
+  margin-left: 1rem;
+}
+
+/* 영상이 화면에 맞춰지도록 하기 */
+.video-wrap video { 
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* .video-wrap{
+position: relative;
+width: 100%;
+background: linear-gradient(to right, rgb(14, 1, 71), rgb(36, 1, 189));
+}
+
+.video-wrap video{
+  /* min-width: 500px;
+  min-height: 320px; */
+  /* position: absolute; */
+  /* height: 120vh; */
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
+  /* width: auto; */
+/* } */
+
+.text-wrap {
+  position: absolute;
+  z-index: 2;
+  /* height: 100vh; 뷰포트 */
+  padding: 0% 3%;
+  left: 3%;
+  top: 40%;
+}
+
+.text-wrap h1 {
+  letter-spacing: 0.2rem;
+  font-family: 'Ruda', sans-serif;
+}
+
+.text-wrap p{
+  margin-bottom: 1rem;
+}
+
+
+.main_container{
+  border-bottom: 2px solid #aaaaaa; /* 2 메뉴아래 구분선 */
+}
+
+.section02, .section03{
+  padding: 20% 7%;
+  text-align: center;
+}
+
+.card {
+  box-shadow: 5px 5px 5px rgb(75, 115, 189);
+  border-radius: 10px;
+}
+
+.section_title{
+  color: rgb(30, 69, 151);
+  font-family: 'Barlow', sans-serif;
+  display: block;
+  font-size: 300%;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  text-shadow: 2px 2px 2px lightblue;
+}
+
+.section_content{
+  color: rgb(73, 99, 156);
+  margin-bottom: 10rem;
+  letter-spacing: 0.1rem;
+  text-shadow: 1px 1px 1px lightblue;
+  font-weight: bold;
+}
+
+.content{
+  width:60%;
+}
+
+.section03 p {
+  margin-bottom: 5rem;
+}
+
+.card-title, .card-text{
+  color: black;
+  text-align: left;
+  font-weight: bold;
+  margin-left: 1rem;
+  font-size: 120%;
+}
+
+.card-title{
+  margin-bottom: 2rem;
+}
+
+.img-fluid{
+  align-items: center;
+}
+
+.card-body {
+  align-items: center;
+  margin: 1rem;
+}
+
+.footer_container{
+  padding: 1% 2.5%;
+  padding-left: 3%;
+  font-size: 90%;
+}
+
+.foot_detail{
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.foot_detail:hover{
+  color: rgba(195, 195, 255, 0.459);
+}
+
+.icons{
+  float: right;
+  display: flex;
+  align-items: center;
+  min-width: max-content;
+}
+
+.icon{
+  margin: 0.3rem;
+}

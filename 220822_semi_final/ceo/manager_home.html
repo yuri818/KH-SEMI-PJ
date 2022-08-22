@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DaGYM 홈화면</title>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./manager_home.css">
+  <!-- chartjs때문에 추가한 부분 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- jquery 추가하기 -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="./chartjs.js" defer></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="./manager_home.html">DaGYM</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="./manager_home.html">수입 조회</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./manager_member.html">회원 관리</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./manager_trainer.html">직원 관리</a>
+            </li>
+            <li class="nav-item dropdown" id="nav-item">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                게시판
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="../cs_notice.html">공지사항</a></li>
+                <li><a class="dropdown-item" href="../cs_qna.html">자주하는 질문</a></li>
+                <li><a class="dropdown-item" href="../cs_personal.html">1:1 문의</a></li>
+                <li><a class="dropdown-item" href="../cs_review.html">후기 게시판</a></li>
+              </ul>
+            </li>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <canvas id="myChartOne"></canvas>
+        </div>
+        <div class="col-md-6">
+          <canvas id="myChartTwo"></canvas>
+        </div>
+        <div class="col-md-6">
+          <canvas id="myChartThree"></canvas>
+        </div>
+        <div class="col-md-6">
+          <canvas id="myChartFour"></canvas>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
