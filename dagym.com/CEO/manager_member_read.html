@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 상세보기</title>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./manager_member.css">
+</head>
+<body>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
+  <script>
+    const firebaseConfig = { // 개인 key 값
+      apiKey: "AIzaSyDtVA_IYoYtVpeDuUF_UmKLFwOlg44CAic",
+      authDomain: "terrgym-demo-bac70.firebaseapp.com",
+      databaseURL: "https://terrgym-demo-bac70-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "terrgym-demo-bac70",
+      storageBucket: "terrgym-demo-bac70.appspot.com",
+      messagingSenderId: "679211028162",
+      appId: "1:679211028162:web:d6839267c5c25146ccb55b",
+    };
+    firebase.initializeApp(firebaseConfig);
+    </script>
+  <script>
+    // 화면이 렌더링 되는 것과 스크립트 처리 사이의 시간차
+    $(document).ready(function(){
+      const db = firebase.firestore();
+      let params = new URLSearchParams(document.location.search);
+      let id = params.get("id"); // 문자열 "Jonathan"
+      console.log("사용자가 선택한 doc.id" + id);
+      let user_name;
+      $("#exampleModal").modal("show")
+      const readModal = document.getElementById("exampleModal");
+      readModal.addEventListener("shown.bs.modal", () => {
+        db.collection("user").doc(id).get().then((result) =>{
+          // console.log(result.data());
+          const name = result.data().Name;
+          user_name = name; 
+          const gender = result.data().gender;
+          const phone = result.data().phoneNumber;
+          const email = result.data().email;
+          $("#exampleModalLabel").text(name+' 회원 상세정보');
+          $(".name").text(name);
+          $(".gender").text(gender);
+          $(".phone").text(phone);
+          $(".email").text(email);
+          // 구매내역에 등록된 이름과 회원 이름이 같을 경우 등록지점과 등록기간 보여주기
+          // 왜냐하면 user컬렉션 필드에는 이름이 없고 어차피 등록할 때 이름은 내 이름으로 할거니까!
+          db.collection("purchase")
+          .where("user_name", "==", user_name)
+          .get()
+          .then((snapshot) => {
+            snapshot.forEach((doc) => {
+              const branch = doc.data().p_branch;
+              const period = doc.data().duration;
+              $(".branch").text(branch);
+              $(".period").text(period);
+            })
+          })
+        })
+      })
+    })
+  </script>
+  <div class="modal fade" 
+    id="exampleModal" 
+    tabindex="-1" 
+    aria-labelledby="exampleModalLabel" 
+    aria-hidden="true">
+
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">회원정보 상세보기</h5>
+          <button type="button" 
+            class="btn-close" 
+            data-bs-dismiss="modal" 
+            aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <label>이름 : </label>
+          <span class="name"></span>
+          <br>
+          <label>성별 : </label>
+          <span class="gender"></span>
+          <br>
+          <label>연락처 : </label>
+          <span class="phone"></span>
+          <br>
+          <label>이메일 : </label>
+          <span class="email"></span>
+          <br>
+          <label>등록지점 : </label>
+          <span class="branch"></span>
+          <br>
+          <label>등록기간 : </label>
+          <span class="period"></span>
+          <br>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
