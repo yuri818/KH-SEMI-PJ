@@ -1,0 +1,55 @@
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #f093fb;
+  
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to bottom right, rgb(136, 143, 240), rgb(116, 61, 234));
+  
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to bottom right, rgb(136, 143, 240), rgb(116, 61, 234))
+  }
+  
+  .card-registration .select-input.form-control[readonly]:not([disabled]) {
+  font-size: 1rem;
+  line-height: 2.15;
+  padding-left: .75em;
+  padding-right: .75em;
+  }
+  .card-registration .select-arrow {
+  top: 13px;
+  }
+
+
+.pt-2 {
+  margin:0 auto;
+  text-align:end;
+}
+
+.navbar-brand { /* 로고 */
+  padding: 1%;
+  color: rgba(39, 37, 143, 0.795);
+  font-weight: bold;
+  font-family: 'Caveat', cursive;
+  font-size: 3.5rem;
+  margin-top: 0px;
+  padding-top: 0px;
+  padding-bottom: 3rem;
+}
+
+.navbar-brand:hover{
+  color: rgba(195, 195, 255, 0.459);
+}
+
+.form-outline {
+  display: flex;
+  align-items: center;
+}
+
+.form-label {
+  min-width: 90px;
+  margin-bottom: 0px;
+}
+
+.form-control{
+  font-size: 100%;
+}

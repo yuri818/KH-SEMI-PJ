@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로그인</title>
+<!-- jquery 추가하기 -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<!-- fontawesome 때매 -->
+<script src="https://kit.fontawesome.com/cccd1be026.js" crossorigin="anonymous"></script>
+<!-- 내가 추가한 파일들 적용 -->
+<link rel="stylesheet" href="./login.css">
+<script src="./login.js" defer></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Dosis&family=Nanum+Gothic&family=Ubuntu:wght@300&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Barlow&family=Ruda&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Dosis&display=swap');
+</style>
+<style>
+  * {
+    font-family: 'Nanum Gothic', sans-serif;
+  }
+</style>
+</head>
+<body>
+  <!-- 여기는 파이어베이스 cdn에서 가져온것 -->
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script>
+  <!-- 여기는 파이어베이스 cdn에서 가져온것 -->
+  
+  <section class="vh-150% gradient-custom">
+    <div class="container py-5 h-120">
+      <div class="row d-flex justify-content-center align-items-center h-120">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card bg-dark text-white" style="border-radius: 1rem; max-height: 650px;">
+            <div class="card-body p-5 text-center" style="max-height: 650px;">
+              <div style="max-height: 650px;">
+                <a class="navbar-brand" href="./main.html">DaGYM</a>
+                <h5 style="font-weight: bold; margin-top:1rem;">로그인</h5>
+                <p class="text-white-50">아이디와 비밀번호를 입력해주세요.</p>
+                <!-- 메일 주소 입력하는 칸 -->
+                <div class="form-outline form-white">
+                  <input type="email" id="email" class="form-control form-control-lg" placeholder="이메일" style="font-size: 110%;">
+                  <label class="form-label" for="typeEmailX"></label>
+                </div>
+                
+                <!-- 비번 입력하는 칸 -->
+                <div class="form-outline form-white" style="margin-bottom: 0.3rem;">
+                  <input type="password" id="password" class="form-control form-control-lg" placeholder="비밀번호" style="font-size: 110%;">
+                  <label class="form-label" for="typePasswordX"></label>
+                </div>
+                <!-- 로그인버튼 -->
+                <button id="login" class="btn btn-outline-light btn-lg px-5 login" type="button" style="font-weight: bolder;">로그인</button>
+  
+                <!-- 이부분에 깃헙이랑 구글로 로그인하는 것 -->
+                <div class="d-flex justify-content-center text-center mt-4 pt-1">
+                  <!-- google로 로그인하기 추가 -->
+                  <button class="btn btn-lg btn-block" style="background-color: #dd4b39; color: aliceblue; font-size: smaller; font-weight: bold;"
+                  type="button" id="google"><i class="fab fa-google me-2"></i> Google 계정으로 로그인</button>
+                </div>
+                <div class="d-flex justify-content-center text-center mt-2 pt-1">
+                  <!-- 깃허브로 로그인하기 추가 -->
+                  <button class="btn btn-lg btn-block" style="background-color: #d3d3d3; color: #171515; font-size: smaller; font-weight: bold;"
+                  type="button" id="github"><i class="fa-brands fa-github me-3"></i> github 계정으로 로그인</button>
+                </div>
+                <br>
+                <!-- 회원가입으로 넘어가기 -->
+                <div>
+                  <p class="mb-0" style="font-size: smaller;">계정이 존재하지 않다면 &nbsp&nbsp<a href="./signUp.html" class="text-white-50 fw-bold">회원가입</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
