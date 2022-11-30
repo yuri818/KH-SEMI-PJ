@@ -4,7 +4,7 @@
 **Firebase**를 기반으로 하여 헬스장 홈페이지를 만들어 보았습니다.
 
 ## 📽️시연 영상
-
+[시연영상 보러가기](https://drive.google.com/file/d/1TiwcPQB5YSZwJ_zhrGpL0rNyFc58OOxa/view?usp=share_link)
 
 ## 👩‍💻팀원 소개
 ![image](https://user-images.githubusercontent.com/104042566/204850189-01975abc-c377-4811-b740-d5c16907432c.png)
